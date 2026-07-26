@@ -1227,6 +1227,407 @@
         }
       ],
       "note": "Échéancier CORRIGÉ le 12/07/2026 après précision d'Eva et re-vérifié à la source (impots.gouv.fr, service-public.fr, economie.gouv.fr). Corrections : (1) régime TVA = réel SIMPLIFIÉ aujourd'hui → UNE CA12 annuelle (~5 mai 2027) pour l'exercice 2026, pas de CA3 mensuelle ; le simplifié étant supprimé au 01/01/2027, bascule automatique en réel normal avec CA3 TRIMESTRIELLE (CA < 1 M€, l'option mensuelle existe mais n'est pas le défaut). (2) Présidente NON rémunérée = zéro cotisation, ligne cotis-president en veille. (3) Ajout de la réforme FACTURATION ÉLECTRONIQUE : réception obligatoire au 01/09/2026 (toutes entreprises), émission au 01/09/2027 (TPE/PME). Points restant « à confirmer » (verifie:false) : le JOUR exact de la future CA3 trimestrielle (15-24 selon ton SIE) et la date exacte de la liasse 2065 (~20 mai). La CVAE reste hors échéancier (seuil de déclaration 152 500 € de CA non atteint). Les items du cycle comptable portent apartir:2027-01-01 pour ne pas sonner avant la 1re clôture.\n\n[MàJ 12/07 — mémento fiscal reçu] Confirmé : IS au réel normal (ROF IS1) ; TVA réel simplifié, déclaration CA12 annuelle, acompte 3514 semestriel (juillet/décembre) — a priori sans effet vu la 1re année + sortie du RSI au 01/01/2027. N° TVA intracom : FR 19 105247977. CVAE (ROF CVAE1, régime de la déclaration) : CA très inférieur à 152 500 € → aucune CVAE due ; vérifier auprès du SIE si une déclaration reste requise."
+    },
+    {
+      "agent": "victor",
+      "updated_at": "2026-07-26",
+      "trigger": "Ronde en session — point d'étape à 5 semaines de l'échéance facturation électronique (01/09/2026)",
+      "synthese": "SASU en règle, rien de neuf déposé dans prive/ depuis le 12/07 (la réponse du SIE à ta demande TVA du 12/07 n'est pas encore arrivée). L'échéance la plus proche approche : au 1er septembre 2026 (dans ~5 semaines) tu dois pouvoir RECEVOIR tes factures fournisseurs au format électronique — calendrier reconfirmé à la source, aucun report. C'est ta prochaine marche. Bonne nouvelle au passage : l'acompte de TVA de juillet (avis 3514) ne te concernait pas (1re année d'activité), rien à payer.",
+      "etat_global": "Entreprise en règle — échéancier calé ; prochaine marche : être prête à RECEVOIR les e-factures au 01/09/2026 (~5 semaines)",
+      "domaines": [
+        {
+          "nom": "Forme juridique",
+          "statut": "fait",
+          "resume": "SASU constituée, statuts signés 14/05/2026 ; registre des décisions papier coté/paraphé à tenir (à se procurer avant la 1re décision formelle mi-2027)."
+        },
+        {
+          "nom": "Immatriculation & enregistrement",
+          "statut": "fait",
+          "resume": "RCS Pau 28/05/2026, SIREN 105 247 977, SIRET 105 247 977 00017 ; espace pro impots.gouv.fr activé. ✔"
+        },
+        {
+          "nom": "Assurances",
+          "statut": "a_faire",
+          "resume": "Toujours aucune attestation RC Pro au dossier. À souscrire AVANT le 1er client : RC Pro éditeur de logiciel + cyber (option). Deviendra la priorité dès la facturation électronique réglée."
+        },
+        {
+          "nom": "Comptabilité, fiscalité & social",
+          "statut": "en_cours",
+          "resume": "TVA réel SIMPLIFIÉ (CA12 annuelle ~5 mai 2027 pour 2026) → bascule réel normal CA3 TRIMESTRIELLE au 01/01/2027 ; IS 1er exercice sans acompte ; présidente NON rémunérée = 0 cotisation ; acompte TVA de juillet (3514) sans objet la 1re année ; réponse SIE (réf. 1238610770) toujours attendue ; expert-comptable/solution encore à choisir."
+        },
+        {
+          "nom": "Contrats & conditions",
+          "statut": "a_faire",
+          "resume": "CGV/CGU + mentions légales de la plateforme à rédiger avant commercialisation (volet RGPD/DPA → Cléo)."
+        },
+        {
+          "nom": "Banque & administratif courant",
+          "statut": "en_cours",
+          "resume": "Compte pro Indy ; c'est aussi le point d'entrée à vérifier pour la RÉCEPTION des e-factures au 01/09/2026 ; facturation conforme à finaliser (mentions obligatoires + N° TVA FR 19 105247977)."
+        },
+        {
+          "nom": "Propriété intellectuelle & marque",
+          "statut": "a_faire",
+          "resume": "Domaine cpts-pilot.fr réservé. Dépôt de la MARQUE « CPTS Pilot » à l'INPI à lancer (identité/logo avec Stella). À caler avant la commercialisation pour sécuriser le nom."
+        }
+      ],
+      "prochaine_demarche": {
+        "titre": "Être prête à recevoir les e-factures",
+        "pourquoi": "C'est ton échéance la plus proche — plus que ~5 semaines. Au 1er septembre 2026, toute entreprise assujettie à la TVA (toi comprise) doit pouvoir RECEVOIR ses factures fournisseurs au format électronique structuré, via une plateforme agréée (PDP). J'ai reconfirmé à la source : le calendrier est maintenu, aucun report, juste une phase de tolérance pour les entreprises réellement en difficulté. Action concrète cette semaine : (1) demande à Indy (par le chat de l'appli) « est-ce que vous assurez déjà la réception de mes factures électroniques au 1er septembre, ou dois-je m'inscrire à une plateforme agréée ? » ; (2) si Indy ne le fait pas, choisis une PDP dans l'annuaire officiel des plateformes agréées sur impots.gouv.fr et rattache-toi. En pratique, avec quasi aucun fournisseur pour l'instant, l'enjeu est surtout d'avoir le canal en place — pas de panique, mais coche-le avant le 01/09. En parallèle, si la réponse du SIE arrive (réf. 1238610770), dépose-la dans prive/ pour que je fige les dernières dates TVA.",
+        "domaine": "Comptabilité, fiscalité & social"
+      },
+      "echeances": [
+        {
+          "titre": "Être prête à RECEVOIR les factures électroniques (calendrier reconfirmé, aucun report)",
+          "date": "2026-09-01",
+          "domaine": "Comptable"
+        },
+        {
+          "titre": "Réponse du SIE à ta demande TVA (réf. 1238610770) — à déposer dans prive/ quand reçue",
+          "date": "en attente",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Paiement de la CFE (avis à aller chercher dans l'espace pro à l'automne)",
+          "date": "2026-12-15",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Déclaration initiale de CFE (1447-C-SD)",
+          "date": "2026-12-31",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Bascule TVA au réel normal (CA3 trimestrielle)",
+          "date": "2027-01-01",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "1re déclaration annuelle de TVA (CA12) — exercice 2026",
+          "date": "2027-05-05 (~5 mai)",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Solde d'IS (relevé 2572) — 1er exercice",
+          "date": "2027-05-15",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Déclaration de résultat (liasse 2065)",
+          "date": "2027-05-20 (date exacte publiée chaque année)",
+          "domaine": "Fiscal"
+        },
+        {
+          "titre": "Approbation des comptes 2026 par l'associée unique",
+          "date": "2027-06-30",
+          "domaine": "Juridique"
+        },
+        {
+          "titre": "Dépôt des comptes annuels au greffe",
+          "date": "2027-07-31",
+          "domaine": "Juridique"
+        },
+        {
+          "titre": "Obligation d'ÉMETTRE tes factures en électronique",
+          "date": "2027-09-01",
+          "domaine": "Comptable"
+        }
+      ],
+      "echeancier": [
+        {
+          "id": "efact-reception",
+          "titre": "Être prête à recevoir les factures électroniques",
+          "domaine": "Comptable",
+          "recurrence": "ponctuel",
+          "date": "2026-09-01",
+          "ou": "Ton outil de gestion (vérifier avec Indy) ou une plateforme agréée (PDP) — annuaire officiel sur impots.gouv.fr",
+          "note": "Au 1er septembre 2026, toute entreprise doit pouvoir RECEVOIR ses factures fournisseurs au format électronique. Calendrier reconfirmé à la source (aucun report). Vérifie si Indy le fait déjà pour toi ; sinon rattache-toi à une plateforme agréée.",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "efact-emission",
+          "titre": "Émettre tes factures au format électronique",
+          "domaine": "Comptable",
+          "recurrence": "ponctuel",
+          "date": "2027-09-01",
+          "ou": "Via une plateforme agréée (PDP) / ta solution de facturation compatible",
+          "note": "Au 1er septembre 2027, les TPE/PME comme toi devront ÉMETTRE leurs factures au format électronique (fini la simple facture PDF/papier). À anticiper avec ton outil de facturation.",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "tva-ca12",
+          "titre": "Déclarer et régulariser la TVA annuelle (CA12)",
+          "domaine": "Fiscal",
+          "recurrence": "annuel",
+          "jour": 5,
+          "mois": 5,
+          "apartir": "2027-01-01",
+          "ou": "impots.gouv.fr › Mon espace pro › Déclarer › TVA (déclaration annuelle CA12 / formulaire 3517-S)",
+          "note": "Régime réel SIMPLIFIÉ : UNE seule déclaration par an, qui régularise toute la TVA de l'exercice. Échéance : 2e jour ouvré après le 1er mai (soit ~5 mai 2027 pour l'exercice 2026 ; date exacte publiée chaque année). Pour ta 1re année, pas d'acompte semestriel (ils se calculent sur la TVA de l'année d'avant, qui n'existe pas) : tout est réglé sur cette CA12. NB : ce régime est supprimé au 01/01/2027 — cette CA12 ne servira donc que pour l'exercice 2026. Régime réel simplifié (RSI) confirmé par le mémento fiscal (ROF TVA1).",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "tva-ca3",
+          "titre": "Déclarer et payer la TVA (CA3)",
+          "domaine": "Fiscal",
+          "recurrence": "trimestriel",
+          "jour": 24,
+          "mois": 1,
+          "apartir": "2027-01-01",
+          "ou": "impots.gouv.fr › Mon espace pro › Déclarer › TVA (CA3)",
+          "note": "À partir du 01/01/2027, le régime simplifié disparaît : tu passes au réel normal et déclares en CA3. Comme ton chiffre d'affaires est inférieur à 1 M€, la déclaration est TRIMESTRIELLE (et non mensuelle). Le jour limite (entre le 15 et le 24 selon ton SIE Béarn-Soule) est à confirmer dans ton espace pro › Calendrier fiscal.",
+          "verifie": false,
+          "actif": true
+        },
+        {
+          "id": "tva-acompte-3514",
+          "titre": "Acompte de TVA (avis 3514, régime simplifié)",
+          "domaine": "Fiscal",
+          "recurrence": "annuel",
+          "jour": 24,
+          "mois": 7,
+          "ou": "impots.gouv.fr › Mon espace pro › Déclarer › TVA (avis 3514)",
+          "note": "L'échéance de juillet est passée SANS OBJET pour toi : aucun acompte de TVA la 1re année d'activité, et tu quittes le régime simplifié le 01/01/2027 → ta 1re vraie échéance TVA reste la CA12 de mai 2027 couvrant tout 2026. Ligne laissée en veille (actif:false) pour mémoire.",
+          "verifie": false,
+          "actif": false
+        },
+        {
+          "id": "is-solde",
+          "titre": "Payer le solde d'impôt sur les sociétés (relevé 2572)",
+          "domaine": "Fiscal",
+          "recurrence": "annuel",
+          "jour": 15,
+          "mois": 5,
+          "apartir": "2027-01-01",
+          "ou": "impots.gouv.fr › Mon espace pro › Déclarer › Impôt sur les sociétés (relevé de solde 2572)",
+          "note": "Le 15 du 4e mois après la clôture (clôture au 31/12 → 15 mai). Pour ton 1er exercice, il n'y a PAS d'acompte : tu paies tout l'IS d'un coup à ce solde.",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "liasse-2065",
+          "titre": "Déposer la déclaration de résultat (liasse fiscale 2065)",
+          "domaine": "Fiscal",
+          "recurrence": "annuel",
+          "jour": 20,
+          "mois": 5,
+          "apartir": "2027-01-01",
+          "ou": "Via ton expert-comptable / logiciel (EDI-TDFC), ou impots.gouv.fr › Mon espace pro › Déclarer › Résultats",
+          "note": "Bilan de l'exercice clos au 31/12. Échéance vers le 20 mai (2e jour ouvré après le 1er mai + délai de 15 jours pour la télétransmission) ; la date exacte est publiée chaque année sur le calendrier fiscal.",
+          "verifie": false,
+          "actif": true
+        },
+        {
+          "id": "is-acomptes",
+          "titre": "Acomptes trimestriels d'impôt sur les sociétés",
+          "domaine": "Fiscal",
+          "recurrence": "trimestriel",
+          "jour": 15,
+          "mois": 3,
+          "apartir": "2027-01-01",
+          "ou": "impots.gouv.fr › Mon espace pro › Déclarer › Impôt sur les sociétés (relevé d'acompte 2571)",
+          "note": "NE TE CONCERNE PAS ENCORE : aucun acompte pendant le 1er exercice. À partir du 2e exercice, 4 acomptes (15/03, 15/06, 15/09, 15/12) — sauf si l'IS de l'année précédente est inférieur à 3 000 € (alors tu en es dispensée).",
+          "verifie": false,
+          "actif": false
+        },
+        {
+          "id": "cfe",
+          "titre": "Payer la cotisation foncière des entreprises (CFE)",
+          "domaine": "Fiscal",
+          "recurrence": "annuel",
+          "jour": 15,
+          "mois": 12,
+          "ou": "impots.gouv.fr › Mon espace pro › Consulter › Avis de CFE, puis payer en ligne",
+          "note": "L'avis n'est pas envoyé par courrier : tu vas le chercher dans ton espace pro à l'automne. Paiement au plus tard le 15 décembre. (Un acompte au 15 juin n'est dû que si ta CFE de l'an passé dépassait 3 000 €.)",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "cfe-init",
+          "titre": "Déclaration initiale de CFE (formulaire 1447-C-SD)",
+          "domaine": "Fiscal",
+          "recurrence": "ponctuel",
+          "date": "2026-12-31",
+          "ou": "impots.gouv.fr / formulaire 1447-C-SD à transmettre au SIE Béarn-Soule",
+          "note": "À faire UNE seule fois, l'année de création, avant le 31/12/2026. Elle sert à établir ta CFE des années suivantes (tu es exonérée de CFE l'année de création).",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "cotis-president",
+          "titre": "Cotisations sociales de la présidente (si un jour rémunérée)",
+          "domaine": "Social",
+          "recurrence": "mensuel",
+          "jour": 15,
+          "ou": "urssaf.fr / DSN mensuelle (via ton expert-comptable ou logiciel de paie)",
+          "note": "Aujourd'hui SANS OBJET : tu es présidente NON rémunérée → aucune cotisation sociale personnelle, aucune DSN. À réactiver uniquement le jour où tu votes une rémunération de présidente (tu serais alors assimilée salariée, avec cotisations mensuelles à l'URSSAF).",
+          "verifie": true,
+          "actif": false
+        },
+        {
+          "id": "approb-comptes",
+          "titre": "Approuver les comptes annuels (décision de l'associée unique)",
+          "domaine": "Juridique",
+          "recurrence": "annuel",
+          "jour": 30,
+          "mois": 6,
+          "apartir": "2027-01-01",
+          "ou": "Décision écrite de l'associée unique, consignée dans le registre des décisions",
+          "note": "Dans les 6 mois après la clôture (clôture 31/12 → avant le 30 juin). Tu inscris la décision d'approbation des comptes dans ton registre des décisions coté/paraphé.",
+          "verifie": true,
+          "actif": true
+        },
+        {
+          "id": "depot-comptes",
+          "titre": "Déposer les comptes annuels au greffe",
+          "domaine": "Juridique",
+          "recurrence": "annuel",
+          "jour": 31,
+          "mois": 7,
+          "apartir": "2027-01-01",
+          "ou": "infogreffe.fr (greffe du tribunal de commerce de Pau) — dépôt en ligne",
+          "note": "Dans le mois qui suit l'approbation des comptes (2 mois si dépôt en ligne). Tu peux demander la confidentialité de tes comptes en tant que petite entreprise.",
+          "verifie": true,
+          "actif": true
+        }
+      ],
+      "checklist": [
+        {
+          "id": "vc-forme",
+          "label": "Créer la société (forme juridique SASU)",
+          "domaine": "Forme juridique",
+          "fait": true
+        },
+        {
+          "id": "vc-immat",
+          "label": "Immatriculer l'entreprise (RCS Pau 105 247 977, dossier régularisé)",
+          "domaine": "Immatriculation",
+          "fait": true
+        },
+        {
+          "id": "vc-rbe",
+          "label": "Déclarer les bénéficiaires effectifs (RBE)",
+          "domaine": "Immatriculation",
+          "fait": true
+        },
+        {
+          "id": "vc-domiciliation",
+          "label": "Domicilier le siège social",
+          "domaine": "Immatriculation",
+          "fait": true
+        },
+        {
+          "id": "vc-domaine",
+          "label": "Réserver le nom de domaine (cpts-pilot.fr)",
+          "domaine": "Marque",
+          "fait": true
+        },
+        {
+          "id": "vc-espacepro",
+          "label": "Créer et activer l'espace professionnel impots.gouv.fr (SIREN 105 247 977) — FAIT",
+          "domaine": "Comptabilité, fiscalité & social",
+          "fait": true
+        },
+        {
+          "id": "vc-efact-reception",
+          "label": "Être prête à RECEVOIR les factures électroniques au 01/09/2026 (vérifier Indy / rattachement à une plateforme agréée PDP)",
+          "domaine": "Comptabilité, fiscalité & social",
+          "echeance": "2026-09-01",
+          "fait": false
+        },
+        {
+          "id": "vc-registre",
+          "label": "Se procurer le registre des décisions de l'associée unique + cote/paraphe (mairie du siège, gratuit) — ne PAS sur-acheter au greffe",
+          "domaine": "Comptabilité, fiscalité & social",
+          "fait": false
+        },
+        {
+          "id": "vc-cfe",
+          "label": "Déposer la déclaration initiale de CFE (1447-C-SD) avant le 31/12/2026",
+          "domaine": "Comptabilité, fiscalité & social",
+          "echeance": "2026-12-31",
+          "fait": false
+        },
+        {
+          "id": "vc-compta",
+          "label": "Choisir un expert-comptable (ou une solution de comptabilité en ligne)",
+          "domaine": "Comptabilité, fiscalité & social",
+          "fait": false
+        },
+        {
+          "id": "vc-tva",
+          "label": "Régime de TVA clarifié : réel SIMPLIFIÉ (CA12 annuelle) en 2026 → réel normal CA3 TRIMESTRIELLE au 01/01/2027 — FAIT",
+          "domaine": "Comptabilité, fiscalité & social",
+          "fait": true
+        },
+        {
+          "id": "vc-social",
+          "label": "Statut social présidente tranché : NON rémunérée → aucune cotisation (à revoir si rémunération votée) — FAIT",
+          "domaine": "Comptabilité, fiscalité & social",
+          "fait": true
+        },
+        {
+          "id": "vc-rcpro",
+          "label": "Souscrire une assurance RC Pro d'éditeur de logiciel",
+          "domaine": "Assurances",
+          "echeance": "avant le 1er client",
+          "fait": false
+        },
+        {
+          "id": "vc-cyber",
+          "label": "Étudier une cyber-assurance (option)",
+          "domaine": "Assurances",
+          "fait": false
+        },
+        {
+          "id": "vc-cgv",
+          "label": "Rédiger les CGV/CGU de la plateforme",
+          "domaine": "Contrats & conditions",
+          "fait": false
+        },
+        {
+          "id": "vc-mentions",
+          "label": "Rédiger mentions légales + politique de confidentialité (RGPD avec Cléo)",
+          "domaine": "Contrats & conditions",
+          "fait": false
+        },
+        {
+          "id": "vc-compte",
+          "label": "Confirmer/ouvrir un compte bancaire pro dédié + le renseigner dans l'espace pro",
+          "domaine": "Banque",
+          "fait": false
+        },
+        {
+          "id": "vc-facturation",
+          "label": "Mettre en place une facturation conforme (mentions obligatoires + N° TVA FR 19 105247977)",
+          "domaine": "Banque",
+          "fait": false
+        },
+        {
+          "id": "vc-marque",
+          "label": "Déposer la marque « CPTS Pilot » à l'INPI (avec Stella)",
+          "domaine": "Marque",
+          "fait": false
+        }
+      ],
+      "relais": [
+        {
+          "agent": "Cléo",
+          "sujet": "RGPD, hébergement HDS et politique de confidentialité / clause DPA (données de santé)"
+        },
+        {
+          "agent": "Orion",
+          "sujet": "Réglementaire santé : statut « dispositif médical » du logiciel et certification Ségur"
+        },
+        {
+          "agent": "Carla",
+          "sujet": "Attestation de régularité fiscale (éditable dans l'espace pro) pour candidater aux marchés publics ; facturation des CPTS"
+        }
+      ],
+      "note": "Ronde du 26/07/2026. Rien de nouveau déposé dans prive/ depuis le 12/07 : la réponse du SIE (réf. 1238610770) n'est pas encore arrivée — dès qu'elle est là, dépose-la dans prive/ et je fige les 2 dernières dates incertaines (jour exact de la CA3 trimestrielle 2027, date liasse 2065). Vérifié à la source ce jour : le calendrier de la facturation électronique est MAINTENU, aucun report — réception obligatoire au 01/09/2026, émission TPE/PME au 01/09/2027 (une phase de tolérance existe pour les entreprises réellement en difficulté, mais l'obligation de pouvoir recevoir est universelle). Point rassurant : l'acompte de TVA de juillet (avis 3514) ne te concernait pas (1re année d'activité) — rien à payer, je passe la ligne en veille. Échéancier et checklist repris à l'identique et actualisés (ajout de la case « recevoir les e-factures » en checklist). Aucune donnée personnelle sensible recopiée ici (elles restent dans prive/). Prochaines priorités après la facturation électronique : souscrire la RC Pro avant le 1er client et lancer le dépôt de la marque « CPTS Pilot » à l'INPI (avec Stella) avant la commercialisation."
     }
   ]
 }

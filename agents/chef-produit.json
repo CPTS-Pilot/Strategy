@@ -422,15 +422,30 @@
       "etat": "Grosse quinzaine de code après un rapport calme le 21/06. Deux chantiers réels ont atterri sur main. (1) 2e vague de la refonte Coordination le 28/06 : nav 2 niveaux (3 tuiles + sous-feuillets), plan d'action en volets parallèles avec avancement global, suivi des réunions par mission/action (+ alerte « sans réunion »), documents de la fiche action (upload/download, visibles côté groupe de travail), onglet Indicateurs dédié, budget/indicateurs devenus sous-feuillets, et une vue d'ensemble « feu » (à lancer / lancées / stand-by). C'est bien tracé : tes jalons « Refonte de l'onglet Coordination (Suivi Contrat ACI) » et « Coordination : plan d'action guidé, suivi des réunions et documents par action » sont déjà en vert. (2) Le 27/06, tu as livré un module d'audit/smoke-test complet (audit/ : harness sur instance jetable, balayage routes×rôles, oracle flux argent Playwright, matrice RBAC, run_audit → smoketest.json + suite de tests) — un vrai outil qui n'a AUCUN jalon. Les deux finitions démo que je pointe depuis le 17/06 restent ouvertes, revérifiées dans le code : reset démo toujours désactivé (demo/routes.py:479, « Reset à l'entrée DÉSACTIVÉ 2026-06-06 ») et domaine incohérent (cptspilot.fr sans tiret sur home.html:29, _tarifs.html:24, _migration_drawer.html:44 alors que l'officiel est cpts-pilot.fr).",
       "evolution": "Après une semaine calme, deux gros chantiers ont atterri (Coordination 2e vague, bien jalonnée + un module d'audit livré hors roadmap) — mais les 2 finitions démo (reset + domaine) sont toujours là, strictement inchangées.",
       "prochain_chantier": {
-        "titre": "Rendre la démo publique envoyable sans accompagnement (reset entre visiteurs + domaine cohérent)",
+        "titre": "Démo publique auto-envoyable",
         "pourquoi": "Inchangé depuis le 17/06 parce que non traité : tu as construit beaucoup (Coordination, audit) mais pas fermé les deux trous qui séparent « je te fais une démo » de « va voir sur cpts-pilot.fr/demo ». 1) Le reset à l'entrée est désactivé depuis le 06/06 (demo/routes.py:479) : ton verrou exclusif évite le télescopage en direct, mais un visiteur qui revient retombe sur un sandbox pollué. 2) Le domaine est faux dans le JSON-LD et les emails (cptspilot.fr sans tiret) : SEO envoyé sur le mauvais domaine et contact@ peut-être mort. Deux petits fix à fort effet, seuls devant toi avant de laisser Carla prospecter avec un lien qui tient tout seul."
       },
       "a_anticiper": [
-        "Reset démo (roadmap planned juillet) : à fiabiliser avant d'envoyer le lien — vider dans le bon ordre de dépendances (les FK/500 qui avaient calé le 06/06) ou recharger un dump de seed. Le verrou exclusif ne le remplace pas.",
-        "Domaine cptspilot.fr vs cpts-pilot.fr (home.html:29, _tarifs.html:24, _migration_drawer.html:44) : fix de 10 min, mais risque image/SEO/email réel — à faire avant toute diffusion du lien.",
-        "Vrai prochain gros chantier produit derrière les finitions démo : trancher l'hébergement (jalon « Décider comment chaque CPTS est hébergée : espace partagé ou espace dédié », planned juillet). Décision structurante qui commande la « Mise en service d'une nouvelle CPTS cliente » — à arbitrer avant d'engager une 2e CPTS.",
-        "Le module d'audit/smoke-test est un atout : fais-le tourner (python -m audit.run_audit) avant chaque diffusion démo — il remonte 500/RBAC/flux argent et alimente smoketest.json dans le cockpit.",
-        "SESSION_STATUS.md toujours figé au 16/02 (4,5 mois) alors que le code a beaucoup bougé (Coordination, audit) : à rafraîchir avant le multi-CPTS pour ne pas repartir d'une fausse photo."
+        {
+          "titre": "Fiabiliser le reset démo",
+          "pourquoi": "Reset démo (roadmap planned juillet) : à fiabiliser avant d'envoyer le lien — vider dans le bon ordre de dépendances (les FK/500 qui avaient calé le 06/06) ou recharger un dump de seed. Le verrou exclusif ne le remplace pas."
+        },
+        {
+          "titre": "Unifier le domaine cpts-pilot.fr",
+          "pourquoi": "Domaine cptspilot.fr vs cpts-pilot.fr (home.html:29, _tarifs.html:24, _migration_drawer.html:44) : fix de 10 min, mais risque image/SEO/email réel — à faire avant toute diffusion du lien."
+        },
+        {
+          "titre": "Trancher l'hébergement des CPTS",
+          "pourquoi": "Vrai prochain gros chantier produit derrière les finitions démo : trancher l'hébergement (jalon « Décider comment chaque CPTS est hébergée : espace partagé ou espace dédié », planned juillet). Décision structurante qui commande la « Mise en service d'une nouvelle CPTS cliente » — à arbitrer avant d'engager une 2e CPTS."
+        },
+        {
+          "titre": "Lancer l'audit avant chaque démo",
+          "pourquoi": "Le module d'audit/smoke-test est un atout : fais-le tourner (python -m audit.run_audit) avant chaque diffusion démo — il remonte 500/RBAC/flux argent et alimente smoketest.json dans le cockpit."
+        },
+        {
+          "titre": "Rafraîchir SESSION_STATUS.md",
+          "pourquoi": "SESSION_STATUS.md toujours figé au 16/02 (4,5 mois) alors que le code a beaucoup bougé (Coordination, audit) : à rafraîchir avant le multi-CPTS pour ne pas repartir d'une fausse photo."
+        }
       ],
       "cap_commercial": {
         "pret_a_vendre": "Prêt à montrer en live (cpts-pilot.fr, France), à un cheveu de « prêt à envoyer le lien seul ». Rien n'a bougé sur ce front : il manque toujours le reset démo fiabilisé et la cohérence de domaine.",
@@ -508,6 +523,83 @@
         "Coordination : plan d'action guidé, suivi des réunions et documents par action"
       ],
       "note": "Belle quinzaine de construction : la Coordination ACI est passée à un vrai pilotage à deux niveaux (volets, suivi réunions, documents, indicateurs) et tu t'es même offert un module d'audit qui va te sécuriser avant chaque démo — je te le propose en « acté » pour qu'il compte. Deux choses seulement, et elles n'ont pas bougé depuis le 17/06 : le reset démo (demo/routes.py:479) et le domaine (cpts-pilot.fr partout, 3 fichiers, 10 min). Prochaine action unique : corrige le domaine, puis fiabilise le reset — et on passe la main à Carla pour la 1re CPTS."
+    },
+    {
+      "updated_at": "2026-07-26",
+      "trigger": "Ronde produit complète — rattrapage depuis le 01/07 (~25 jours)",
+      "etat": "Bascule majeure côté commercial, prouvée dans le repo Strategy : la CONVENTION DE BÉTA TEST avec la CPTS PAU BÉARN est SIGNÉE (data.beta.signatureDate = 2026-07-09). Tu as bâti dans la foulée, côté cockpit, toute une section « Suivi béta test » : coquille tableau de bord + « à traiter » + engagements (c611909), puis « Signalements des béta-testeurs » en lecture seule depuis betatest.json (26d9250), enfin l'alignement de l'onglet sur la convention signée (8c8f31f). MAIS honnêteté totale sur ma limite ce tour : mon clone de Plateforme-CPTS est figé au 25/05/2026 et le fetch du remote est refusé (erreur 403) — je n'ai donc PAS pu vérifier le code PRODUIT de juin/juillet (ni le module audit, ni la Coordination ACI 2 niveaux, ni les bloqueurs domaine/reset que je citais le 01/07). J'ai fait cette ronde en partie à l'aveugle côté plateforme : tout ce que j'affirme ici s'appuie sur ce que je peux réellement prouver (repo Strategy, cockpit, git log), rien de supposé.",
+      "evolution": "On est passés de « produit démo-ready, envoie le lien à une 1re CPTS » (01/07) à « 1re CPTS réelle (Pau Béarn) a signé le béta test le 09/07 » — l'enjeu n'est plus de trouver un pilote, mais de réussir CE béta test.",
+      "prochain_chantier": {
+        "titre": "Boucler la boucle de retours béta",
+        "pourquoi": "C'est le seul chantier qui compte maintenant que Pau Béarn a signé. Tu as construit côté cockpit la section qui LIT betatest.json (les signalements des béta-testeurs) — mais ce fichier n'existe pas encore dans le repo et data.beta.retours / incidents / reports sont vides. Tant que le bouton « signaler un bug ou une idée en 2 clics » DANS la plateforme ne génère pas ce betatest.json, la boucle reste ouverte : Pau Béarn n'a aucun moyen simple de te remonter ses retours, ta belle section de suivi reste une coquille vide, et le béta test tourne à vide. C'est exactement ton jalon roadmap en cours (« Les béta-testeurs signalent un bug ou une idée en deux clics, l'éditrice suit et répond », status doing). Le fermer bout-en-bout = transformer la signature Pau Béarn en retours concrets à traiter, donc en preuve de valeur pour convertir en client payant. Je n'ai pas pu vérifier si le bouton in-app existe déjà (clone figé) : première chose à confirmer, produire un vrai betatest.json depuis la plateforme."
+      },
+      "a_anticiper": [
+        {
+          "titre": "Données réelles = sauvegardes + RGPD",
+          "pourquoi": "Pau Béarn signée le 09/07 : de VRAIES données de membres CPTS vont entrer dans la plateforme. Les points que je listais en « hypothétiques » depuis juin deviennent réels et urgents : sauvegardes DB prod avec restauration testée, HTTPS sur cpts-pilot.fr, hébergement/localisation France, registre des traitements et convention de traitement (DPA) avec Pau Béarn. À traiter MAINTENANT, pas après (relais Audit + DPO)."
+        },
+        {
+          "titre": "Clone plateforme figé (25/05)",
+          "pourquoi": "Mon clone Plateforme-CPTS est bloqué au 25/05 et le fetch remote est refusé (403). Je n'ai pas pu voir le code produit de juin/juillet : je pilote la partie produit à l'aveugle. Il faut rafraîchir le clone (git pull) et/ou me redonner l'accès en lecture, sinon mes prochaines rondes resteront partielles et je ne pourrai pas te confirmer ce qui est vraiment livré."
+        },
+        {
+          "titre": "Onboarding réel Pau Béarn",
+          "pourquoi": "Signer ≠ utiliser. La prochaine étape concrète du béta test : importer les vrais membres Pau Béarn (l'import fichier + vérif mails est marqué done), s'assurer que chaque rôle voit bien son espace, que rien ne coince au premier usage. C'est là que le béta test réussit ou cale — surveille le premier vrai contact des membres avec la plateforme."
+        }
+      ],
+      "cap_commercial": {
+        "pret_a_vendre": "Bascule : on n'est plus « prêt à vendre » mais « en béta test client réel ». La 1re CPTS (Pau Béarn) a signé la convention le 09/07. Le vrai enjeu commercial n'est plus de convaincre un pilote, c'est de RÉUSSIR ce béta test pour le convertir en client payant + première référence.",
+        "demo_ready": [
+          "Suivi béta test côté cockpit : tableau de bord + « à traiter » + engagements CPTS + signalements des béta-testeurs, aligné sur la convention Pau Béarn signée (index.html, vérifié)",
+          "Briques produit fortes du 01/07 (Coordination ACI 2 niveaux, trésorerie/fléchage, vues par rôle, vitrine V1, module audit interne) — NON re-vérifiées ce tour, clone figé au 25/05"
+        ],
+        "bloqueurs_vente": [
+          "Boucle de retours béta ouverte : betatest.json n'existe pas encore, data.beta.retours/reports vides — sans le bouton « signaler en 2 clics » qui l'alimente, aucun retour Pau Béarn ne remonte et le béta test tourne à vide",
+          "Sécurité des données RÉELLES non confirmée : sauvegardes DB prod + restauration testée + HTTPS + hébergement France — de vraies données CPTS entrent désormais, ce n'est plus un risque théorique (Audit + DPO)",
+          "Code produit non vérifiable ce tour (clone figé 25/05) : les bloqueurs domaine (cptspilot.fr vs cpts-pilot.fr) et reset démo signalés le 01/07 sont peut-être réglés — ou pas ; à re-confirmer dès que le clone est à jour"
+        ],
+        "chemin_critique": [
+          "Boucler la boucle de retours béta (bouton in-app -> betatest.json -> section cockpit déjà prête)",
+          "Onboarder les vrais membres Pau Béarn (import + vérif mails + vues par rôle qui tiennent)",
+          "Sécuriser les données réelles : sauvegardes DB + HTTPS + hébergement France (Audit + DPO)",
+          "Collecter et traiter les 1ers retours -> itérer vite -> convertir Pau Béarn en client payant + référence/étude de cas"
+        ]
+      },
+      "propositions_roadmap": [
+        {
+          "action": "acter",
+          "titre": "Béta test Pau Béarn — convention signée",
+          "pourquoi": "Fait commercial majeur prouvé (data.beta.signatureDate = 2026-07-09, invités = CPTS PAU BEARN) et sans aucun jalon sur ton fil : la 1re CPTS a signé une convention de béta test. À poser sur la roadmap au 09/07 pour que ce jalon d'entreprise soit visible dans ton pilotage.",
+          "mois": "2026-07"
+        },
+        {
+          "action": "acter",
+          "titre": "Suivi béta test dans le cockpit",
+          "pourquoi": "Vrai travail livré sans jalon dédié : section « Suivi béta test » construite dans index.html — coquille tableau de bord + à traiter + engagements (c611909, 06-07), signalements lecture seule via betatest.json (26d9250, 09-07), alignement sur la convention signée (8c8f31f, 13-07). À poser sur le fil pour rendre visible l'outillage que tu t'es donné pour piloter le béta test.",
+          "mois": "2026-07"
+        },
+        {
+          "action": "ajouter",
+          "titre": "Sécuriser les données réelles béta",
+          "pourquoi": "Nouveau chantier rendu réel par la signature Pau Béarn : de vraies données membres entrent dans la plateforme. Sauvegardes DB prod + restauration testée, HTTPS, hébergement/localisation France, DPA avec Pau Béarn. À poser comme jalon actif (à mener avec Audit + DPO) — ce n'est plus « à anticiper », c'est en cours."
+        }
+      ],
+      "relais": [
+        {
+          "agent": "Iris (Audit)",
+          "sujet": "Priorité relevée : de vraies données CPTS (Pau Béarn) entrent en béta depuis le 09/07. Confirmer d'urgence sauvegardes DB prod + test de restauration, HTTPS cpts-pilot.fr, secrets/variables prod Scalingo, clés S3 OVH. Ce n'est plus hypothétique."
+        },
+        {
+          "agent": "Cléo (DPO)",
+          "sujet": "Béta test réel avec Pau Béarn : registre des traitements, convention/contrat de traitement (DPA) avec la CPTS, localisation France des données à valider maintenant que des données personnelles réelles sont traitées."
+        },
+        {
+          "agent": "Carla (Business)",
+          "sujet": "Pau Béarn a signé le béta test (09/07) : cadrer dès maintenant le chemin de conversion béta -> client payant, et transformer Pau Béarn en première référence / étude de cas."
+        }
+      ],
+      "faits": [],
+      "note": "Grosse quinzaine, et une vraie bascule : tu as décroché ta 1re CPTS en béta test (Pau Béarn, signée le 09/07) et tu t'es outillée dans le cockpit pour la suivre. Bravo — c'est le cap qu'on visait. Deux transparences importantes de ma part : (1) je n'ai PAS pu vérifier le code produit ce tour, mon clone Plateforme-CPTS est figé au 25/05 et le fetch est bloqué (403) — d'où zéro proposition « clore » sur des jalons produit ce tour, je ne veux rien affirmer que je n'ai pas pu prouver. Rafraîchis le clone quand tu peux, je repartirai du vrai code. (2) Ta section de suivi béta lit un fichier betatest.json qui n'existe pas encore : la boucle est à moitié construite. Prochaine action unique : fais en sorte que la plateforme produise ce betatest.json (le bouton « signaler en 2 clics ») — sans lui, Pau Béarn ne peut rien te remonter et ta belle section reste vide."
     }
   ]
 }

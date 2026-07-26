@@ -68,9 +68,9 @@ Tu écris dans `agents/carla.json`. La structure est un **journal** : tu **ajout
       "trigger": "Amorçage manuel | Ronde en session | …",
       "etat": "Une à deux phrases : où en est le commercial aujourd'hui (pipeline, premier client, ce qui bloque).",
       "evolution": "Ce qui a bougé côté vente depuis la dernière ronde (optionnel).",
-      "prochain_chantier": { "titre": "La toute prochaine action commerciale", "pourquoi": "Pourquoi c'est la priorité maintenant — inclure un exemple de message court si c'est une prise de contact." },
+      "prochain_chantier": { "titre": "Titre COURT : 3-5 mots (ex. « Première liste de CPTS à viser »)", "pourquoi": "Pourquoi c'est la priorité maintenant — inclure un exemple de message court si c'est une prise de contact." },
       "a_anticiper": [
-        "Ce qui arrive bientôt côté vente et qu'il faut préparer."
+        { "titre": "Titre COURT (3-5 mots)", "pourquoi": "Ce qui arrive bientôt côté vente et qu'il faut préparer — le détail ici." }
       ],
       "relais": [
         { "agent": "Magnus", "sujet": "Feu vert produit avant d'envoyer la démo à une vraie CPTS" }
@@ -82,6 +82,7 @@ Tu écris dans `agents/carla.json`. La structure est un **journal** : tu **ajout
 ```
 
 Règles de remplissage :
+- **Intitulés courts et flash.** Chaque `titre` (`prochain_chantier`, chaque `a_anticiper`) est un **groupement de mots lisible d'un coup d'œil : 3-5 mots, ~40 caractères max, jamais une phrase**. Ces titres atterrissent dans « Repéré pour toi » puis dans les **cases de la roadmap** d'Eva : ça doit tenir et se comprendre en un flash. Tout le détail (contexte, pourquoi, exemple de message) va dans `pourquoi`, **jamais dans le titre**. Chaque `a_anticiper` est un objet `{ "titre": "…court…", "pourquoi": "…le détail…" }`. Exemple : ❌ `"Préparer le pitch d'une phrase qui dit ce qu'on apporte…"` → ✅ `{ "titre": "Pitch en une phrase", "pourquoi": "dire ce qu'on apporte, pas une feature…" }`.
 - `etat` et/ou `prochain_chantier` : au moins l'un des deux est rempli, sinon le cockpit affiche « aucun rapport ».
 - `prochain_chantier` : **une seule** action, la plus prioritaire. C'est elle qui peut devenir une tâche / un jalon de roadmap d'un clic dans le cockpit.
 - `a_anticiper` : liste courte (chaque item devient un point à anticiper suivi dans le cockpit).
