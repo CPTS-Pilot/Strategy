@@ -1232,8 +1232,8 @@
       "agent": "victor",
       "updated_at": "2026-07-26",
       "trigger": "Ronde en session — point d'étape à 5 semaines de l'échéance facturation électronique (01/09/2026)",
-      "synthese": "SASU en règle, rien de neuf déposé dans prive/ depuis le 12/07 (la réponse du SIE à ta demande TVA du 12/07 n'est pas encore arrivée). L'échéance la plus proche approche : au 1er septembre 2026 (dans ~5 semaines) tu dois pouvoir RECEVOIR tes factures fournisseurs au format électronique — calendrier reconfirmé à la source, aucun report. C'est ta prochaine marche. Bonne nouvelle au passage : l'acompte de TVA de juillet (avis 3514) ne te concernait pas (1re année d'activité), rien à payer.",
-      "etat_global": "Entreprise en règle — échéancier calé ; prochaine marche : être prête à RECEVOIR les e-factures au 01/09/2026 (~5 semaines)",
+      "synthese": "SASU en règle, rien de neuf déposé dans prive/ depuis le 12/07 (la réponse du SIE à ta demande TVA du 12/07 n'est pas encore arrivée). Côté facturation électronique (réception au 01/09/2026) : c'est réglé — tu m'as confirmé le 26/07 que tu es déjà chez Indy, une plateforme agréée (PDP), donc le canal de réception est en place, rien à faire de plus. Ta prochaine marche devient donc la RC Pro, à souscrire avant ton 1er client. Bonne nouvelle au passage : l'acompte de TVA de juillet (avis 3514) ne te concernait pas (1re année d'activité), rien à payer.",
+      "etat_global": "Entreprise en règle — échéancier calé ; e-facturation (réception 01/09) déjà couverte via Indy (PDP agréée) ; prochaine marche : RC Pro avant le 1er client",
       "domaines": [
         {
           "nom": "Forme juridique",
@@ -1263,7 +1263,7 @@
         {
           "nom": "Banque & administratif courant",
           "statut": "en_cours",
-          "resume": "Compte pro Indy ; c'est aussi le point d'entrée à vérifier pour la RÉCEPTION des e-factures au 01/09/2026 ; facturation conforme à finaliser (mentions obligatoires + N° TVA FR 19 105247977)."
+          "resume": "Compte pro Indy — confirmé le 26/07 comme plateforme agréée (PDP) : la RÉCEPTION des e-factures au 01/09/2026 est couverte, rien à faire. Reste à finaliser la facturation conforme (mentions obligatoires + N° TVA FR 19 105247977)."
         },
         {
           "nom": "Propriété intellectuelle & marque",
@@ -1272,8 +1272,8 @@
         }
       ],
       "prochaine_demarche": {
-        "titre": "Être prête à recevoir les e-factures",
-        "pourquoi": "C'est ton échéance la plus proche — plus que ~5 semaines. Au 1er septembre 2026, toute entreprise assujettie à la TVA (toi comprise) doit pouvoir RECEVOIR ses factures fournisseurs au format électronique structuré, via une plateforme agréée (PDP). J'ai reconfirmé à la source : le calendrier est maintenu, aucun report, juste une phase de tolérance pour les entreprises réellement en difficulté. Action concrète cette semaine : (1) demande à Indy (par le chat de l'appli) « est-ce que vous assurez déjà la réception de mes factures électroniques au 1er septembre, ou dois-je m'inscrire à une plateforme agréée ? » ; (2) si Indy ne le fait pas, choisis une PDP dans l'annuaire officiel des plateformes agréées sur impots.gouv.fr et rattache-toi. En pratique, avec quasi aucun fournisseur pour l'instant, l'enjeu est surtout d'avoir le canal en place — pas de panique, mais coche-le avant le 01/09. En parallèle, si la réponse du SIE arrive (réf. 1238610770), dépose-la dans prive/ pour que je fige les dernières dates TVA.",
+        "titre": "Souscrire la RC Pro avant le 1er client",
+        "pourquoi": "Mise à jour du 26/07 : la réception des e-factures au 01/09/2026 est DÉJÀ couverte — tu m'as confirmé être passée par Indy, qui est une plateforme agréée (PDP). Rien à faire de plus de ce côté, je passe la ligne en « fait ». Ta prochaine vraie marche devient donc l'assurance : souscrire une RC Pro éditeur de logiciel (option cyber conseillée) AVANT d'embarquer ton 1er client réel. Pau Béarn est déjà en béta test (signé le 21/07) : de vraies données de membres et une vraie relation contractuelle sont en jeu — sans RC Pro, tu portes seule le risque en cas de litige. Action concrète : demande 2-3 devis « RC Pro éditeur SaaS santé » et souscris avant la conversion de Pau Béarn en client payant. En parallèle, si la réponse du SIE arrive (réf. 1238610770), dépose-la dans prive/ pour que je fige les dernières dates TVA.",
         "domaine": "Comptabilité, fiscalité & social"
       },
       "echeances": [

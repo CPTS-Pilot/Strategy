@@ -527,8 +527,8 @@
     {
       "updated_at": "2026-07-26",
       "trigger": "Ronde produit complète — rattrapage depuis le 01/07 (~25 jours)",
-      "etat": "Bascule majeure côté commercial, prouvée dans le repo Strategy : la CONVENTION DE BÉTA TEST avec la CPTS PAU BÉARN est SIGNÉE (data.beta.signatureDate = 2026-07-09). Tu as bâti dans la foulée, côté cockpit, toute une section « Suivi béta test » : coquille tableau de bord + « à traiter » + engagements (c611909), puis « Signalements des béta-testeurs » en lecture seule depuis betatest.json (26d9250), enfin l'alignement de l'onglet sur la convention signée (8c8f31f). MAIS honnêteté totale sur ma limite ce tour : mon clone de Plateforme-CPTS est figé au 25/05/2026 et le fetch du remote est refusé (erreur 403) — je n'ai donc PAS pu vérifier le code PRODUIT de juin/juillet (ni le module audit, ni la Coordination ACI 2 niveaux, ni les bloqueurs domaine/reset que je citais le 01/07). J'ai fait cette ronde en partie à l'aveugle côté plateforme : tout ce que j'affirme ici s'appuie sur ce que je peux réellement prouver (repo Strategy, cockpit, git log), rien de supposé.",
-      "evolution": "On est passés de « produit démo-ready, envoie le lien à une 1re CPTS » (01/07) à « 1re CPTS réelle (Pau Béarn) a signé le béta test le 09/07 » — l'enjeu n'est plus de trouver un pilote, mais de réussir CE béta test.",
+      "etat": "Bascule majeure côté commercial, prouvée dans le repo Strategy : la CONVENTION DE BÉTA TEST avec la CPTS PAU BÉARN est SIGNÉE (data.beta.signatureDate = 2026-07-21). Tu as bâti dans la foulée, côté cockpit, toute une section « Suivi béta test » : coquille tableau de bord + « à traiter » + engagements (c611909), puis « Signalements des béta-testeurs » en lecture seule depuis betatest.json (26d9250), enfin l'alignement de l'onglet sur la convention signée (8c8f31f). MAIS honnêteté totale sur ma limite ce tour : mon clone de Plateforme-CPTS est figé au 25/05/2026 et le fetch du remote est refusé (erreur 403) — je n'ai donc PAS pu vérifier le code PRODUIT de juin/juillet (ni le module audit, ni la Coordination ACI 2 niveaux, ni les bloqueurs domaine/reset que je citais le 01/07). J'ai fait cette ronde en partie à l'aveugle côté plateforme : tout ce que j'affirme ici s'appuie sur ce que je peux réellement prouver (repo Strategy, cockpit, git log), rien de supposé.",
+      "evolution": "On est passés de « produit démo-ready, envoie le lien à une 1re CPTS » (01/07) à « 1re CPTS réelle (Pau Béarn) a signé le béta test le 21/07 » — l'enjeu n'est plus de trouver un pilote, mais de réussir CE béta test.",
       "prochain_chantier": {
         "titre": "Boucler la boucle de retours béta",
         "pourquoi": "C'est le seul chantier qui compte maintenant que Pau Béarn a signé. Tu as construit côté cockpit la section qui LIT betatest.json (les signalements des béta-testeurs) — mais ce fichier n'existe pas encore dans le repo et data.beta.retours / incidents / reports sont vides. Tant que le bouton « signaler un bug ou une idée en 2 clics » DANS la plateforme ne génère pas ce betatest.json, la boucle reste ouverte : Pau Béarn n'a aucun moyen simple de te remonter ses retours, ta belle section de suivi reste une coquille vide, et le béta test tourne à vide. C'est exactement ton jalon roadmap en cours (« Les béta-testeurs signalent un bug ou une idée en deux clics, l'éditrice suit et répond », status doing). Le fermer bout-en-bout = transformer la signature Pau Béarn en retours concrets à traiter, donc en preuve de valeur pour convertir en client payant. Je n'ai pas pu vérifier si le bouton in-app existe déjà (clone figé) : première chose à confirmer, produire un vrai betatest.json depuis la plateforme."
@@ -536,7 +536,7 @@
       "a_anticiper": [
         {
           "titre": "Données réelles = sauvegardes + RGPD",
-          "pourquoi": "Pau Béarn signée le 09/07 : de VRAIES données de membres CPTS vont entrer dans la plateforme. Les points que je listais en « hypothétiques » depuis juin deviennent réels et urgents : sauvegardes DB prod avec restauration testée, HTTPS sur cpts-pilot.fr, hébergement/localisation France, registre des traitements et convention de traitement (DPA) avec Pau Béarn. À traiter MAINTENANT, pas après (relais Audit + DPO)."
+          "pourquoi": "Pau Béarn signée le 21/07 : de VRAIES données de membres CPTS vont entrer dans la plateforme. Les points que je listais en « hypothétiques » depuis juin deviennent réels et urgents : sauvegardes DB prod avec restauration testée, HTTPS sur cpts-pilot.fr, hébergement/localisation France, registre des traitements et convention de traitement (DPA) avec Pau Béarn. À traiter MAINTENANT, pas après (relais Audit + DPO)."
         },
         {
           "titre": "Clone plateforme figé (25/05)",
@@ -548,7 +548,7 @@
         }
       ],
       "cap_commercial": {
-        "pret_a_vendre": "Bascule : on n'est plus « prêt à vendre » mais « en béta test client réel ». La 1re CPTS (Pau Béarn) a signé la convention le 09/07. Le vrai enjeu commercial n'est plus de convaincre un pilote, c'est de RÉUSSIR ce béta test pour le convertir en client payant + première référence.",
+        "pret_a_vendre": "Bascule : on n'est plus « prêt à vendre » mais « en béta test client réel ». La 1re CPTS (Pau Béarn) a signé la convention le 21/07. Le vrai enjeu commercial n'est plus de convaincre un pilote, c'est de RÉUSSIR ce béta test pour le convertir en client payant + première référence.",
         "demo_ready": [
           "Suivi béta test côté cockpit : tableau de bord + « à traiter » + engagements CPTS + signalements des béta-testeurs, aligné sur la convention Pau Béarn signée (index.html, vérifié)",
           "Briques produit fortes du 01/07 (Coordination ACI 2 niveaux, trésorerie/fléchage, vues par rôle, vitrine V1, module audit interne) — NON re-vérifiées ce tour, clone figé au 25/05"
@@ -569,7 +569,7 @@
         {
           "action": "acter",
           "titre": "Béta test Pau Béarn — convention signée",
-          "pourquoi": "Fait commercial majeur prouvé (data.beta.signatureDate = 2026-07-09, invités = CPTS PAU BEARN) et sans aucun jalon sur ton fil : la 1re CPTS a signé une convention de béta test. À poser sur la roadmap au 09/07 pour que ce jalon d'entreprise soit visible dans ton pilotage.",
+          "pourquoi": "Fait commercial majeur prouvé (data.beta.signatureDate = 2026-07-21, invités = CPTS PAU BEARN) et sans aucun jalon sur ton fil : la 1re CPTS a signé une convention de béta test. À poser sur la roadmap au 21/07 pour que ce jalon d'entreprise soit visible dans ton pilotage.",
           "mois": "2026-07"
         },
         {
@@ -587,7 +587,7 @@
       "relais": [
         {
           "agent": "Iris (Audit)",
-          "sujet": "Priorité relevée : de vraies données CPTS (Pau Béarn) entrent en béta depuis le 09/07. Confirmer d'urgence sauvegardes DB prod + test de restauration, HTTPS cpts-pilot.fr, secrets/variables prod Scalingo, clés S3 OVH. Ce n'est plus hypothétique."
+          "sujet": "Priorité relevée : de vraies données CPTS (Pau Béarn) entrent en béta depuis le 21/07. Confirmer d'urgence sauvegardes DB prod + test de restauration, HTTPS cpts-pilot.fr, secrets/variables prod Scalingo, clés S3 OVH. Ce n'est plus hypothétique."
         },
         {
           "agent": "Cléo (DPO)",
@@ -595,11 +595,11 @@
         },
         {
           "agent": "Carla (Business)",
-          "sujet": "Pau Béarn a signé le béta test (09/07) : cadrer dès maintenant le chemin de conversion béta -> client payant, et transformer Pau Béarn en première référence / étude de cas."
+          "sujet": "Pau Béarn a signé le béta test (21/07) : cadrer dès maintenant le chemin de conversion béta -> client payant, et transformer Pau Béarn en première référence / étude de cas."
         }
       ],
       "faits": [],
-      "note": "Grosse quinzaine, et une vraie bascule : tu as décroché ta 1re CPTS en béta test (Pau Béarn, signée le 09/07) et tu t'es outillée dans le cockpit pour la suivre. Bravo — c'est le cap qu'on visait. Deux transparences importantes de ma part : (1) je n'ai PAS pu vérifier le code produit ce tour, mon clone Plateforme-CPTS est figé au 25/05 et le fetch est bloqué (403) — d'où zéro proposition « clore » sur des jalons produit ce tour, je ne veux rien affirmer que je n'ai pas pu prouver. Rafraîchis le clone quand tu peux, je repartirai du vrai code. (2) Ta section de suivi béta lit un fichier betatest.json qui n'existe pas encore : la boucle est à moitié construite. Prochaine action unique : fais en sorte que la plateforme produise ce betatest.json (le bouton « signaler en 2 clics ») — sans lui, Pau Béarn ne peut rien te remonter et ta belle section reste vide."
+      "note": "Grosse quinzaine, et une vraie bascule : tu as décroché ta 1re CPTS en béta test (Pau Béarn, signée le 21/07) et tu t'es outillée dans le cockpit pour la suivre. Bravo — c'est le cap qu'on visait. Deux transparences importantes de ma part : (1) je n'ai PAS pu vérifier le code produit ce tour, mon clone Plateforme-CPTS est figé au 25/05 et le fetch est bloqué (403) — d'où zéro proposition « clore » sur des jalons produit ce tour, je ne veux rien affirmer que je n'ai pas pu prouver. Rafraîchis le clone quand tu peux, je repartirai du vrai code. (2) Ta section de suivi béta lit un fichier betatest.json qui n'existe pas encore : la boucle est à moitié construite. Prochaine action unique : fais en sorte que la plateforme produise ce betatest.json (le bouton « signaler en 2 clics ») — sans lui, Pau Béarn ne peut rien te remonter et ta belle section reste vide."
     }
   ]
 }
