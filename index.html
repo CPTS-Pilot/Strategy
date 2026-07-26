@@ -3998,7 +3998,7 @@ function vivierToast(msg) {
 async function writeRepoJson(filename, mutateFn, message, opts) {
   const cfg = getGhConfig();
   if (!cfg.token) return { ok: false, error: 'token GitHub non configuré (Réglages)' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const branch = 'main';
   const apiUrl = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/${filename}`;
   const headers = { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
@@ -5083,7 +5083,7 @@ async function loadBrandBrief(force) {
   if (!cfg || !cfg.token) { brandBrief = { ...brandBrief, error: 'token GitHub non configuré (Réglages)', loaded: true }; render(); renderBriefPage(); return; }
   brandBrief = { ...brandBrief, loading: true, error: null }; render(); renderBriefPage();
   try {
-    const owner = cfg.owner || 'Evalita03';
+    const owner = cfg.owner || 'CPTS-Pilot';
     const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/docs/cpts-pilot-brand-brief.md?ref=main&t=${Date.now()}`;
     const resp = await fetch(url, { headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } });
     if (resp.status === 404) throw new Error("Brief introuvable (docs/cpts-pilot-brand-brief.md) — à publier dans Plateforme-CPTS.");
@@ -6866,7 +6866,7 @@ function renderAgentTabFiche(f) {
     <div class="ac-fiche-block"><div class="ac-fiche-label">Mission</div><div class="ac-fiche-text">${esc(a.mission)}</div></div>
     <div class="ac-fiche-block"><div class="ac-fiche-label">Quand l'appeler</div><div class="ac-fiche-text">${esc(a.quand)}</div></div>
     ${currentAgentSlug === 'smoke'
-      ? `<div class="ac-fiche-note">Smoke ne tourne pas dans ce cockpit : son agent de test vit sur le repo <code>Evalita03/Plateforme-CPTS</code> et publie ses passes dans <code>smoketest.json</code>. Le cockpit lit ce rapport en direct (bouton <strong>↻ Rafraîchir</strong>).</div>`
+      ? `<div class="ac-fiche-note">Smoke ne tourne pas dans ce cockpit : son agent de test vit sur le repo <code>CPTS-Pilot/Plateforme-CPTS</code> et publie ses passes dans <code>smoketest.json</code>. Le cockpit lit ce rapport en direct (bouton <strong>↻ Rafraîchir</strong>).</div>`
       : `<div class="ac-fiche-note">Ses instructions complètes (pour ses rondes) vivent dans <code>.claude/agents/${esc(currentAgentSlug)}.md</code> — lisibles et modifiables à tout moment.</div>
     <div class="ac-fiche-row" style="align-items:center"><span class="ac-fiche-label">Réglages</span><button class="btn btn-ghost btn-sm" onclick="openAgentConfigModal()">⚙ Régler le chat (modèle, consignes)</button></div>`}
   </div>`;
@@ -7037,7 +7037,7 @@ async function runAgentRonde() {
     return;
   }
   if (!confirm('Lancer une ronde de ' + nom + ' dans le cloud ?\n\nIl ' + wf.fait + ' (~3 à 5 min — ' + (wf.bille || 'quelques centimes d\'API') + '). Tu rechargeras ton cockpit ensuite pour voir le résultat.')) return;
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const repo = cfg.repo || 'Strategy';
   const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${wf.file}/dispatches`;
   const m = document.getElementById('modal'); m.classList.remove('qc-mode', 'modal-wide');
@@ -8465,7 +8465,15 @@ function scheduleAutoBackup() {
 }
 
 function getGhConfig() {
-  try { return JSON.parse(localStorage.getItem(GH_CONFIG_KEY) || '{}'); }
+  try {
+    const c = JSON.parse(localStorage.getItem(GH_CONFIG_KEY) || '{}');
+    // Compte Github renommé (Evalita03 → CPTS-Pilot) : on rattrape les configs déjà enregistrées.
+    if (c.owner === 'Evalita03') {
+      c.owner = 'CPTS-Pilot';
+      localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(c));
+    }
+    return c;
+  }
   catch { return {}; }
 }
 function setGhConfig(c) { localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(c)); }
@@ -8656,7 +8664,7 @@ function openGhConfigModal() {
       <a href="https://github.com/settings/tokens/new?scopes=repo&description=CPTS%20Pilot%20Cockpit" target="_blank" rel="noopener" style="color:var(--blue-700);font-weight:600;">Générer un token Github →</a> (cocher le scope <strong>repo</strong>)
     </p>
     <div class="field"><label>Token Github (PAT)</label><input id="gh-token" type="password" placeholder="${hasToken?'Laisse vide pour conserver le token actuel':'ghp_xxxxxxxxxxxx'}" autocomplete="off"></div>
-    <div class="field"><label>Owner (ton username Github)</label><input id="gh-owner" placeholder="Evalita03" value="${esc(cfg.owner || 'Evalita03')}"></div>
+    <div class="field"><label>Owner (ton username Github)</label><input id="gh-owner" placeholder="CPTS-Pilot" value="${esc(cfg.owner || 'CPTS-Pilot')}"></div>
     <div class="field"><label>Repo</label><input id="gh-repo" placeholder="Strategy" value="${esc(cfg.repo || 'Strategy')}"></div>
     <div class="field"><label>Branche</label><input id="gh-branch" placeholder="main" value="${esc(cfg.branch || 'main')}"></div>
     <div id="gh-status" style="font-size:12px;color:var(--slate-600);padding:10px 12px;background:var(--slate-50);border-radius:8px;display:none;margin-bottom:12px;border:1px solid var(--slate-200);"></div>
@@ -8924,7 +8932,7 @@ function b64ToUtf8(b64) {
 async function fetchDynamicRoadmap() {
   const cfg = getGhConfig();
   if (!cfg.token) return { items: [], note: 'token GitHub non configuré' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/roadmap.json?ref=main&t=${Date.now()}`;
   try {
     const resp = await fetch(url, {
@@ -8945,7 +8953,7 @@ async function fetchDynamicRoadmap() {
 async function fetchSmokeReport() {
   const cfg = getGhConfig();
   if (!cfg.token) return { empty: true, note: 'token GitHub non configuré' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/smoketest.json?ref=main&t=${Date.now()}`;
   try {
     const resp = await fetch(url, {
@@ -8965,7 +8973,7 @@ async function fetchSmokeReport() {
 async function fetchDynamicStrategy() {
   const cfg = getGhConfig();
   if (!cfg.token) return { encarts: null, note: 'token GitHub non configuré' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/strategy.json?ref=main&t=${Date.now()}`;
   try {
     const resp = await fetch(url, {
@@ -8986,7 +8994,7 @@ async function fetchDynamicStrategy() {
 async function fetchDynamicIdees() {
   const cfg = getGhConfig();
   if (!cfg.token) return { idees: null, note: 'token GitHub non configuré' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/idees.json?ref=main&t=${Date.now()}`;
   try {
     const resp = await fetch(url, {
@@ -9028,7 +9036,7 @@ let betaSignalData = null, betaSignalLoading = false, betaSignalError = null;
 async function fetchBetaSignalements() {
   const cfg = getGhConfig();
   if (!cfg.token) return { data: null, note: 'token GitHub non configuré' };
-  const owner = cfg.owner || 'Evalita03';
+  const owner = cfg.owner || 'CPTS-Pilot';
   const url = `https://api.github.com/repos/${owner}/Plateforme-CPTS/contents/betatest.json?ref=main&t=${Date.now()}`;
   try {
     const resp = await fetch(url, {

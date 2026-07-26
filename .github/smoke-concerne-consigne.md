@@ -1,6 +1,6 @@
 # Consigne — Champ `concerne` dans `smoketest.json` (repo Plateforme-CPTS)
 
-> À coller dans une session Claude sur le repo **Evalita03/Plateforme-CPTS**.
+> À coller dans une session Claude sur le repo **CPTS-Pilot/Plateforme-CPTS**.
 > Elle est **autonome** : elle ne suppose aucune connaissance du cockpit Strategy.
 > But côté cockpit : classer chaque anomalie par **nature** pour la router vers la
 > bonne expertise (correction produit / sécurité → Iris / RGPD → Cléo).

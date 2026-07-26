@@ -31,7 +31,7 @@ jobs:
       - name: Cloner la plateforme (le code que Magnus analyse)
         run: |
           if [ -n "${{ secrets.PLATEFORME_TOKEN }}" ]; then
-            git clone --depth 30 "https://x-access-token:${{ secrets.PLATEFORME_TOKEN }}@github.com/Evalita03/Plateforme-CPTS.git" Plateforme-CPTS
+            git clone --depth 30 "https://x-access-token:${{ secrets.PLATEFORME_TOKEN }}@github.com/CPTS-Pilot/Plateforme-CPTS.git" Plateforme-CPTS
             echo "Plateforme clonée."
           else
             echo "::warning::Pas de secret PLATEFORME_TOKEN — Magnus tournera sans relire le code de la plateforme."
