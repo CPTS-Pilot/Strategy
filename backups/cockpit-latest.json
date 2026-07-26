@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T10:20:15.085Z",
+  "exportedAt": "2026-07-26T10:21:17.447Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -7770,10 +7770,10 @@
     },
     "decisions": [],
     "beta": {
-      "signatureDate": "2026-07-09",
+      "signatureDate": "2026-07-21",
       "invites": [
         {
-          "id": "mrdltl4b07dmg",
+          "id": "ms1nda271meg5",
           "nom": "CPTS PAU BEARN",
           "role": ""
         }
