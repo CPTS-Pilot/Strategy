@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T10:41:41.201Z",
+  "exportedAt": "2026-07-26T10:44:08.178Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -5961,6 +5961,13 @@
         "body": "Homepage publique sur la racine du domaine, arc narratif en 9 sections + 2 moments interactifs (sélecteur de rôle, carrousel des circuits ACI ↔ Trésorerie)."
       },
       {
+        "id": "ms1o5aos2u7ow",
+        "title": "Sécuriser les données réelles béta",
+        "month": "2026-07",
+        "status": "planned",
+        "body": "Proposé par Magnus.\n\nNouveau chantier rendu réel par la signature Pau Béarn : de vraies données membres entrent dans la plateforme. Sauvegardes DB prod + restauration testée, HTTPS, hébergement/localisation France, DPA avec Pau Béarn. À poser comme jalon actif (à mener avec Audit + DPO) — ce n'est plus « à anticiper », c'est en cours."
+      },
+      {
         "id": "ms1lqbjncsqz8",
         "title": "Estimer les enveloppes en lisant les factures",
         "month": "2026-07",
@@ -6288,6 +6295,20 @@
         "month": "2026-07",
         "status": "done",
         "body": "On dépose les fichiers de la CPTS, l'IA les lit et propose les fiches, on vérifie et on bascule — chaque ligne dit clairement ce qui va se passer. Les doublons sont repérés et proposent de compléter la fiche qui existe déjà plutôt que d'en créer une seconde, et un IBAN mal recopié est détecté puis jamais enregistré."
+      },
+      {
+        "id": "ms1o54dbn4z7p",
+        "title": "Béta test Pau Béarn — convention signée",
+        "month": "2026-07",
+        "status": "done",
+        "body": "Réalisé hors roadmap — acté d'après la ronde de Magnus.\n\nFait commercial majeur prouvé (data.beta.signatureDate = 2026-07-21, invités = CPTS PAU BEARN) et sans aucun jalon sur ton fil : la 1re CPTS a signé une convention de béta test. À poser sur la roadmap au 21/07 pour que ce jalon d'entreprise soit visible dans ton pilotage."
+      },
+      {
+        "id": "ms1o573rqtrks",
+        "title": "Suivi béta test dans le cockpit",
+        "month": "2026-07",
+        "status": "done",
+        "body": "Réalisé hors roadmap — acté d'après la ronde de Magnus.\n\nVrai travail livré sans jalon dédié : section « Suivi béta test » construite dans index.html — coquille tableau de bord + à traiter + engagements (c611909, 06-07), signalements lecture seule via betatest.json (26d9250, 09-07), alignement sur la convention signée (8c8f31f, 13-07). À poser sur le fil pour rendre visible l'outillage que tu t'es donné pour piloter le béta test."
       },
       {
         "id": "ms1lqbjnt2s9l",
@@ -7551,7 +7572,7 @@
         "fromDate": "2026-07-26",
         "agent": "orion",
         "enTache": false,
-        "enRoadmap": false,
+        "enRoadmap": true,
         "etat": "active"
       },
       {
@@ -7562,7 +7583,7 @@
         "fromDate": "2026-07-26",
         "agent": "orion",
         "enTache": false,
-        "enRoadmap": false,
+        "enRoadmap": true,
         "etat": "active"
       },
       {
@@ -7839,7 +7860,7 @@
       }
     },
     "lastSeenReport": {
-      "orion": "2026-07-06",
+      "orion": "2026-07-26",
       "chef-produit": "2026-07-26",
       "victor": "2026-07-12",
       "smoke": "2026-07-03",
@@ -7850,7 +7871,10 @@
       "acter|Module d'audit / smoke-test de la plateforme": "applied",
       "ajouter|Corriger l'incohérence de domaine (cptspilot.fr -> cpts-pilot.fr)": "applied",
       "acter|Verrou d'accès exclusif à la démo (1 visiteur à la fois)": "applied",
-      "clore|Tableau de bord Actions lancées/pas lancées/ en cours/ prévues": "applied"
+      "clore|Tableau de bord Actions lancées/pas lancées/ en cours/ prévues": "applied",
+      "acter|Béta test Pau Béarn — convention signée": "applied",
+      "acter|Suivi béta test dans le cockpit": "applied",
+      "ajouter|Sécuriser les données réelles béta": "applied"
     },
     "decisions": [],
     "beta": {
@@ -8012,6 +8036,24 @@
         "body": "Repéré par Mako (concurrence).\n\nPlateforme collaborative française (100 % FR) ciblant les CPTS : messagerie, agenda partagé, gestion de projet, suite bureautique co-éditée, GED, visioconférence, sur environnement référencé SecNumCloud\n\nSe démarquer : Démarque-toi par un produit CPTS guidé et de bout en bout (pilotage, vie de communauté, remontée ACI exploitable) là où Interstis reste un espace collaboratif à configurer. Surveille leur argument SecNumCloud : c'est leur vraie force de vente.",
         "source": "Mako (concurrence)",
         "month": "2026-07"
+      },
+      {
+        "id": "ms1o66c4sj4j9",
+        "theme": "Canaux & go-to-market",
+        "title": "Anticiper la négo ACI CPTS",
+        "status": "planned",
+        "body": "Repéré par Orion (Observatoire).\n\nLa négociation de l'avenant ACI CPTS est programmée (6 mois après la LFSS 2026) et suivra la logique MSP : socle dégressif + briques à la mission. Ne pas se faire surprendre.\n\nÀ faire : Suivre les publications UNCAM/ameli et Journées CPTS Bordeaux ; cartographier les futures « briques » de mission pour que ton pilotage des actions colle à la nouvelle grille de financement.",
+        "source": "Orion (Observatoire)",
+        "month": "2026-09"
+      },
+      {
+        "id": "ms1o6nq53ef1b",
+        "theme": "Canaux & go-to-market",
+        "title": "Vocabulaire Communauté France Santé",
+        "status": "planned",
+        "body": "Repéré par Orion (Observatoire).\n\nLes CPTS vont être renommées « Communautés France Santé » et prendre des missions d'animation de réseau / soutien aux structures labellisées. Le premier outil qui parle ce langage prend l'avance.\n\nÀ faire : Préparer une variante d'affichage/onglet « Communauté France Santé » (nom, mission d'animation, suivi des structures labellisées du territoire) prête à activer dès que l'avenant ACI CPTS sort.",
+        "source": "Orion (Observatoire)",
+        "month": "2026-09"
       }
     ],
     "marchePlanSeeded": true,
@@ -8266,6 +8308,15 @@
         "title": "Clone plateforme figé (25/05)",
         "why": "",
         "by": "Magnus (Chef Produit)",
+        "at": "2026-07-26"
+      },
+      {
+        "id": "ms1o6fh8b0tzq",
+        "key": "orion:prospecter la cpts des 3 provinces",
+        "slug": "orion",
+        "title": "Prospecter la CPTS des 3 Provinces",
+        "why": "CPTS des 3 Provinces (64) vient de signer son ACI à la CPAM de Bayonne : 124 communes, ~380 pros libéraux. CPTS jeune et active, sur ton territoire, à équiper.",
+        "by": "Orion (Observatoire)",
         "at": "2026-07-26"
       }
     ]
