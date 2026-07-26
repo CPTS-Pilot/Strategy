@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T10:40:15.537Z",
+  "exportedAt": "2026-07-26T10:41:41.201Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -6269,6 +6269,13 @@
         "body": "Certaines informations n'apparaissent dans aucun document : taux horaires, modes de versement, règles d'indemnisation. Le kit d'onboarding s'enrichit d'une pièce dédiée, avec des matrices Excel prêtes à remplir pour les CPTS qui préfèrent ce format — les coordonnées bancaires, elles, sont désormais lues directement dans les documents transmis, sans ressaisie. Le tableau de bord vérifiera que ce paramétrage financier est en place avant la bascule."
       },
       {
+        "id": "ms1o3ibplxd0m",
+        "title": "Onboarding réel Pau Béarn",
+        "month": "2026-08",
+        "status": "planned",
+        "body": "Repéré par Magnus (Chef Produit).\n\nSigner ≠ utiliser. La prochaine étape concrète du béta test : importer les vrais membres Pau Béarn (l'import fichier + vérif mails est marqué done), s'assurer que chaque rôle voit bien son espace, que rien ne coince au premier usage. C'est là que le béta test réussit ou cale — surveille le premier vrai contact des membres avec la plateforme."
+      },
+      {
         "id": "ms1lqbjnfehxi",
         "title": "Un agent qui accompagne l'onboarding pas à pas",
         "month": "2026-09",
@@ -7535,6 +7542,83 @@
         "enTache": false,
         "enRoadmap": false,
         "etat": "active"
+      },
+      {
+        "id": "ms1o2o5km8i8j",
+        "key": "vocabulaire communauté france santé",
+        "titre": "Vocabulaire Communauté France Santé",
+        "type": "coup",
+        "fromDate": "2026-07-26",
+        "agent": "orion",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5kjv8qd",
+        "key": "anticiper la négo aci cpts",
+        "titre": "Anticiper la négo ACI CPTS",
+        "type": "coup",
+        "fromDate": "2026-07-26",
+        "agent": "orion",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5kwq449",
+        "key": "prospecter la cpts des 3 provinces",
+        "titre": "Prospecter la CPTS des 3 Provinces",
+        "type": "coup",
+        "fromDate": "2026-07-26",
+        "agent": "orion",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5uxhm1n",
+        "key": "sécuriser les données réelles de la béta",
+        "titre": "Sécuriser les données réelles de la béta",
+        "type": "chantier",
+        "fromDate": "2026-07-26",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5uykke3",
+        "key": "données réelles = sauvegardes + rgpd",
+        "titre": "Données réelles = sauvegardes + RGPD",
+        "type": "anticiper",
+        "fromDate": "2026-07-26",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5uxfx6n",
+        "key": "clone plateforme figé (25/05)",
+        "titre": "Clone plateforme figé (25/05)",
+        "type": "anticiper",
+        "fromDate": "2026-07-26",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "ms1o2o5ulw4no",
+        "key": "onboarding réel pau béarn",
+        "titre": "Onboarding réel Pau Béarn",
+        "type": "anticiper",
+        "fromDate": "2026-07-26",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": true,
+        "etat": "active"
       }
     ],
     "agentChats": {
@@ -7756,7 +7840,7 @@
     },
     "lastSeenReport": {
       "orion": "2026-07-06",
-      "chef-produit": "2026-07-01",
+      "chef-produit": "2026-07-26",
       "victor": "2026-07-12",
       "smoke": "2026-07-03",
       "carla": "2026-06-27"
@@ -8156,6 +8240,33 @@
         "why": "Inchangé depuis le 17/06 parce que non traité : tu as construit beaucoup (Coordination, audit) mais pas fermé les deux trous qui séparent « je te fais une démo » de « va voir sur cpts-pilot.fr/demo ». 1) Le reset à l'entrée est désactivé depuis le 06/06 (demo/routes.py:479) : ton verrou exclusif évite le télescopage en direct, mais un visiteur qui revient retombe sur un sandbox pollué. 2) Le domaine est faux dans le JSON-LD et les emails (cptspilot.fr sans tiret) : SEO envoyé sur le mauvais domaine et contact@ peut-être mort. Deux petits fix à fort effet, seuls devant toi avant de laisser Carla prospecter avec un lien qui tient tout seul.",
         "by": "Magnus (Chef Produit)",
         "at": "2026-07-11"
+      },
+      {
+        "id": "ms1o375uflvd9",
+        "key": "chef-produit:sécuriser les données réelles de la béta",
+        "slug": "chef-produit",
+        "title": "Sécuriser les données réelles de la béta",
+        "why": "CORRECTION du 26/07 (Eva) : la boucle de retours béta est en réalité DÉJÀ bouclée — le bouton « Signaler » de la plateforme écrit bien betatest.json, et les signalements de Pau Béarn remontent en direct dans le cockpit (vérifié de visu par Eva). Mon constat précédent (« betatest.json n'existe pas ») était faux : je l'ai écrit à l'aveugle, clone figé au 25/05, sans accès à la plateforme. Ce chantier-là est donc CLOS. La vraie priorité maintenant que de VRAIES données de membres CPTS entrent dans la plateforme (Pau Béarn en béta depuis le 21/07) : sécuriser ces données. À confirmer concrètement — (1) sauvegardes de la base prod avec une restauration réellement testée, (2) HTTPS effectif sur cpts-pilot.fr, (3) hébergement/localisation des données en France, (4) registre des traitements + convention de traitement (DPA) avec Pau Béarn. Ce ne sont plus des sujets hypothétiques : ils sont réels et urgents (relais Audit/Iris + DPO/Cléo). Note : ne pouvant pas voir le code actuel de la plateforme, je ne peux pas dire lesquels sont déjà en place — à faire vérifier lors d'une ronde depuis une session ayant accès au dépôt Plateforme-CPTS.",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-07-26"
+      },
+      {
+        "id": "ms1o393h2uhmr",
+        "key": "chef-produit:données réelles = sauvegardes + rgpd",
+        "slug": "chef-produit",
+        "title": "Données réelles = sauvegardes + RGPD",
+        "why": "",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-07-26"
+      },
+      {
+        "id": "ms1o3av6zl6qq",
+        "key": "chef-produit:clone plateforme figé (25/05)",
+        "slug": "chef-produit",
+        "title": "Clone plateforme figé (25/05)",
+        "why": "",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-07-26"
       }
     ]
   }
