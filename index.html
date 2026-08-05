@@ -8439,11 +8439,32 @@ function exportData() {
 }
 function importData(e) {
   const file = e.target.files[0];
+  e.target.value = '';  // sinon réimporter deux fois le même fichier ne déclenche rien
   if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
-    try { state = JSON.parse(ev.target.result); save(); render(); alert('Données importées !'); }
-    catch(err) { alert('Fichier invalide'); }
+    let parsed;
+    try { parsed = JSON.parse(ev.target.result); }
+    catch(err) {
+      alert("Ce fichier n'est pas lisible.\n\nSi tu l'as pris sur GitHub, télécharge bien le fichier brut (bouton « Raw » ou « Download raw file ») et pas la page web.");
+      return;
+    }
+    // Deux formats acceptés : l'export manuel (l'état à plat) et la sauvegarde
+    // automatique GitHub, qui enveloppe l'état dans { version, exportedAt, data }.
+    const data = (parsed && typeof parsed.data === 'object' && parsed.data) ? parsed.data : parsed;
+    if (!data || typeof data !== 'object' || Array.isArray(data)) { alert('Fichier invalide.'); return; }
+    const known = ['nodes','notes','tasks','roadmap','precos','strategiePillars','prospects','beta','marchePlan'];
+    if (!known.some(k => k in data)) {
+      alert("Ce fichier ne ressemble pas à une sauvegarde du cockpit.");
+      return;
+    }
+    // On repasse par load() pour rejouer les normalisations et migrations
+    localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    load();
+    save();
+    render();
+    const d = parsed.exportedAt ? new Date(parsed.exportedAt) : null;
+    alert('Données importées !' + (d && !isNaN(d) ? '\n\nSauvegarde du ' + d.toLocaleString('fr-FR') + '.' : ''));
   };
   reader.readAsText(file);
 }
