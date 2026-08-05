@@ -600,6 +600,106 @@
       ],
       "faits": [],
       "note": "Grosse quinzaine, et une vraie bascule : tu as décroché ta 1re CPTS en béta test (Pau Béarn, signée le 21/07) et tu t'es outillée dans le cockpit pour la suivre. Bravo — c'est le cap qu'on visait. Deux transparences importantes de ma part : (1) je n'ai PAS pu vérifier le code produit ce tour, mon clone Plateforme-CPTS est figé au 25/05 et le fetch est bloqué (403) — d'où zéro proposition « clore » sur des jalons produit ce tour, je ne veux rien affirmer que je n'ai pas pu prouver. Rafraîchis le clone quand tu peux, je repartirai du vrai code. (2) CORRECTION du 26/07 : j'avais écrit que betatest.json « n'existe pas encore » — c'est FAUX, je l'ai dit à l'aveugle. Eva a vérifié : le bouton « Signaler » de la plateforme écrit bien betatest.json et les retours de Pau Béarn remontent en direct dans le cockpit. La boucle béta est bouclée et fonctionnelle. Mon vrai angle mort, c'est de n'avoir aucun accès au code de la plateforme (clone figé au 25/05) : pour une ronde produit fiable, il faut me lancer depuis une session ayant accès au dépôt Plateforme-CPTS."
+    },
+    {
+      "updated_at": "2026-08-05",
+      "trigger": "ronde auto",
+      "etat": "Ronde faite les yeux mi-clos, et je le dis d'entrée : mon clone de Plateforme-CPTS est TOUJOURS figé au 25/05/2026 (commit 63c982d, HEAD daté du 25/05) et le dépôt est inaccessible depuis ce Codespace (403, remote encore pointé sur l'ancien compte Evalita03). Un instantané périmé de 2 mois et demi : je ne l'utilise donc ni pour clore un jalon, ni pour acter du travail produit. Ce que je peux prouver, c'est le repo Strategy, à jour. Et il raconte trois choses. (1) Le renommage du compte GitHub Evalita03 -> CPTS-Pilot (commit 9993ed4, 26/07) a fait des dégâts : les sauvegardes auto du cockpit se sont arrêtées net du 27/07 08:50 au 05/08 10:07 — 9 jours sans filet, en silence. (2) Tu as réparé ce matin : l'import savait pas ouvrir l'enveloppe { version, exportedAt, data } des sauvegardes auto et rendait un cockpit vide sans erreur (ca52b0d), et tu as ajouté un bouton « Restaurer la dernière sauvegarde » qui lit le repo en direct (708d191). (3) BONNE NOUVELLE que je peux prouver : ta roadmap actuelle contient 19 jalons du seed + 53 jalons lus en direct dans CPTS-Pilot/Plateforme-CPTS/roadmap.json, tous régénérés aujourd'hui à 08:08. Donc le dépôt de la plateforme existe bien sous le nouveau compte et ton token le lit — c'est mon accès à moi qui est cassé, pas le tien. Côté béta : convention Pau Béarn signée le 21/07 (data.beta.signatureDate), et 15 jours plus tard data.beta.retours, incidents et journal sont toujours vides.",
+      "evolution": "Depuis le 26/07 : le renommage du compte a cassé les sauvegardes (9 jours de trou) et effacé des jalons de ta roadmap ; tu as réparé l'import et la restauration ce matin, mais la béta Pau Béarn tourne depuis 15 jours sans qu'aucune trace d'usage ne remonte.",
+      "prochain_chantier": {
+        "titre": "Faire vivre la béta Pau Béarn",
+        "pourquoi": "La convention est signée depuis le 21/07 : ça fait 15 jours. Dans le cockpit, data.beta.retours = [], incidents = [], journal = [] — rien. (Nuance honnête : les signalements, eux, sont lus en direct dans betatest.json et ne sont pas stockés dans la sauvegarde, donc leur absence ici ne prouve rien.) Mais aucune trace d'usage réel non plus. Or une béta qui ne tourne pas ne se convertit pas en client payant, et c'est ça, aujourd'hui, ta route vers la première vente. Trois pas concrets, dans l'ordre : (1) ouvre le cockpit et clique « ↻ Signalements » — si la liste est vide après 15 jours, ce n'est pas un bug, c'est un signal ; (2) provoque un point à J+15 avec Pau Béarn : qui s'est connecté, qui a essayé quoi, qu'est-ce qui a coincé au premier écran — même 20 minutes au téléphone valent tous les tableaux de bord ; (3) note ce que tu apprends dans data.beta.journal, pour que le béta test laisse une trace exploitable (et devienne ton étude de cas). Si ce point révèle que personne ne s'est vraiment connecté, alors le vrai chantier produit devient l'onboarding des membres, pas une fonctionnalité de plus."
+      },
+      "a_anticiper": [
+        {
+          "titre": "Roadmap écrasée à chaque resync",
+          "pourquoi": "Trouvé en comparant deux sauvegardes, et c'est net : le 27/07 ta roadmap contenait 70 jalons dont « Béta test Pau Béarn — convention signée », « Suivi béta test dans le cockpit » et « Sécuriser les données réelles béta » — les trois que tu avais validés depuis mon rapport. Aujourd'hui ils ont disparu, et les 72 jalons ont tous été recréés à 08:08. La cause est dans le code : le bouton « Synthèse plateforme » fait state.roadmap = [...seed, ...roadmap.json] (index.html vers la ligne 9160) — un REMPLACEMENT, pas une fusion. Et applyProposition (index.html ligne 6053) n'écrit qu'en local, jamais dans roadmap.json. Donc tout ce que tu valides depuis mes rondes est effacé au prochain resync. Deux corrections, petites : faire de la synthèse une fusion par titre (ne pas toucher aux jalons absents du seed), et faire publier applyProposition dans roadmap.json comme le fait déjà confirmTaskToRoadmap. Sans ça, notre boucle fuit."
+        },
+        {
+          "titre": "Sauvegardes muettes 9 jours",
+          "pourquoi": "Aucun commit « Backup cockpit » entre le 27/07 08:50 et le 05/08 10:07 : le renommage du compte a cassé le token, et le cockpit ne t'a rien dit. Neuf jours de travail sans filet, découverts après coup. Deux réflexes : un voyant qui passe au rouge dans les Réglages quand la dernière sauvegarde réussie date de plus de 24 h, et une vérification de tout ce que le renommage a pu casser ailleurs — déploiement Scalingo branché sur l'ancien nom de dépôt, URL GitHub Pages du cockpit, liens de la vitrine. Tu as sûrement déjà vu certains de ces points ce matin ; ceux-là, je ne peux pas les vérifier d'ici."
+        },
+        {
+          "titre": "Magnus aveugle sur le produit",
+          "pourquoi": "Deuxième ronde consécutive où je ne peux rien dire du code de la plateforme : mon clone est figé au 25/05, son remote pointe encore sur Evalita03/Plateforme-CPTS et le fetch renvoie 403. Concrètement je pilote un produit que je ne vois plus depuis 2 mois et demi — donc zéro proposition « clore » sur tes jalons produit, et mes rondes resteront des demi-rondes. Le déblocage est simple maintenant qu'on sait que le dépôt vit sous CPTS-Pilot : repointer le remote du clone (git remote set-url origin sur CPTS-Pilot/Plateforme-CPTS) et donner à la session un jeton en lecture. Une fois fait, je te rends une vraie ronde produit : ce qui est livré, ce qui traîne, ce qui est démo-ready."
+        }
+      ],
+      "cap_commercial": {
+        "pret_a_vendre": "En béta test réel depuis 15 jours avec ta 1re CPTS. Ce qui manque pour signer n'est plus du produit, c'est de la PREUVE : preuve que Pau Béarn s'en sert, preuve que ses données sont en sécurité.",
+        "demo_ready": [
+          "Suivi béta test dans le cockpit : tableau de bord, engagements, signalements lus en direct dans Plateforme-CPTS/betatest.json (index.html, lignes 9086-9098)",
+          "Lecture live de la roadmap produit depuis CPTS-Pilot/Plateforme-CPTS/roadmap.json : 53 jalons remontés aujourd'hui — la chaîne cockpit <-> dépôt plateforme fonctionne",
+          "Briques produit (Coordination ACI, trésorerie/fléchage, vues par rôle, vitrine V1, mode démo) : NON re-vérifiées, clone figé au 25/05 — je ne les revendique pas ce tour"
+        ],
+        "bloqueurs_vente": [
+          "Aucune preuve d'usage réel : 15 jours après la signature, rien dans data.beta (retours, incidents, journal vides). Une béta silencieuse ne devient pas un client payant",
+          "Sécurité des données réelles toujours non confirmée : sauvegardes de la base prod avec restauration testée, HTTPS, hébergement France, DPA avec Pau Béarn (Iris + Cléo)",
+          "Angle mort produit : le code de la plateforme est invérifiable depuis 2,5 mois — je ne peux garantir à personne l'état réel de ce qui est livré"
+        ],
+        "chemin_critique": [
+          "Savoir si Pau Béarn utilise vraiment la plateforme (point à J+15, signalements, connexions)",
+          "Collecter les 1ers retours et corriger vite ce qui coince au premier usage",
+          "Confirmer sauvegardes prod + HTTPS + hébergement France + DPA (Iris + Cléo)",
+          "Convertir Pau Béarn en client payant et en première référence / étude de cas"
+        ]
+      },
+      "propositions_roadmap": [
+        {
+          "action": "ajouter",
+          "titre": "Roadmap : fusion non destructive",
+          "pourquoi": "Bug prouvé : « Synthèse plateforme » remplace toute la roadmap (index.html ~ligne 9160) et applyProposition (ligne 6053) n'écrit qu'en local. Résultat, 3 jalons que tu avais validés le 26/07 ont disparu aujourd'hui. À corriger : fusion par titre + publication dans roadmap.json. Petit chantier, gros effet sur ton pilotage."
+        },
+        {
+          "action": "acter",
+          "titre": "Renommage du compte GitHub",
+          "pourquoi": "Commit 9993ed4 (26/07) : owner par défaut passé à CPTS-Pilot dans index.html pour toutes les lectures/écritures GitHub, migration auto des configs déjà enregistrées en localStorage, mise à jour des workflows. Vrai chantier livré, aucun jalon sur ton fil.",
+          "mois": "2026-07"
+        },
+        {
+          "action": "acter",
+          "titre": "Import et restauration des sauvegardes",
+          "pourquoi": "Commits ca52b0d et 708d191 (05/08) : l'import sait désormais ouvrir l'enveloppe des sauvegardes auto (il rendait un cockpit vide sans erreur), refuse un fichier inconnu avec un message utile, et un bouton « Restaurer la dernière sauvegarde » lit le repo en direct. C'est ton filet de sécurité : ça mérite un jalon.",
+          "mois": "2026-08"
+        },
+        {
+          "action": "acter",
+          "titre": "Convention béta Pau Béarn signée",
+          "pourquoi": "À reposer : tu l'avais validé le 26/07 (il était bien dans la sauvegarde du 27/07), le resync roadmap de ce matin l'a effacé. Fait prouvé : data.beta.signatureDate = 2026-07-21, invité = CPTS PAU BEARN. Ton premier jalon commercial ne doit pas disparaître d'un clic.",
+          "mois": "2026-07"
+        },
+        {
+          "action": "acter",
+          "titre": "Section Suivi béta test (cockpit)",
+          "pourquoi": "À reposer aussi (effacé par le resync de ce matin) : section « Suivi béta test » dans index.html — tableau de bord, à traiter, engagements, et signalements lus en direct dans betatest.json (index.html lignes 9086-9098).",
+          "mois": "2026-07"
+        },
+        {
+          "action": "ajouter",
+          "titre": "Sécuriser les données de la béta",
+          "pourquoi": "À reposer : ce jalon, validé le 26/07, a été effacé par le resync de ce matin. Il reste entier et urgent — de vraies données de membres CPTS circulent depuis le 21/07 : sauvegardes de la base prod avec restauration testée, HTTPS, hébergement France, convention de traitement avec Pau Béarn. À mener avec Iris et Cléo."
+        },
+        {
+          "action": "clore",
+          "titre": "Les béta-testeurs signalent un bug ou une idée en deux clics, l'éditrice suit et répond",
+          "pourquoi": "Preuve côté cockpit : la section Signalements lit betatest.json en direct dans Plateforme-CPTS (index.html lignes 9086-9098), et tu as vérifié de visu le 26/07 que le bouton « Signaler » de la plateforme écrit bien ce fichier. À valider seulement si la partie « l'éditrice répond au béta-testeur » est en place ; si tu réponds encore par mail, ignore cette proposition, le jalon reste en cours."
+        }
+      ],
+      "relais": [
+        {
+          "agent": "Iris (Audit)",
+          "sujet": "Deux points durs prouvés : les sauvegardes auto du cockpit se sont arrêtées 9 jours (27/07 -> 05/08) après le renommage du compte, sans aucune alerte — un filet de sécurité qui tombe en silence. Et toujours aucune confirmation sur les sauvegardes de la base prod, la restauration testée, HTTPS et les secrets Scalingo, alors que de vraies données CPTS circulent depuis le 21/07."
+        },
+        {
+          "agent": "Cléo (DPO)",
+          "sujet": "Béta test réel en cours depuis 15 jours avec Pau Béarn : registre des traitements, convention de traitement (DPA) avec la CPTS et localisation France des données — toujours à boucler, ce ne sont plus des sujets théoriques."
+        },
+        {
+          "agent": "Carla (Business)",
+          "sujet": "J+15 de la béta Pau Béarn sans retour visible : cadrer le point d'étape client et le chemin de conversion béta -> client payant, avant que l'élan de la signature ne retombe."
+        }
+      ],
+      "faits": [],
+      "note": "Deux rondes de suite sans pouvoir lire le code de ta plateforme : je préfère te le dire franchement plutôt que de meubler. Mais cette ronde n'est pas vide pour autant — j'ai trouvé pourquoi ton pilotage part en fumée. Quand tu cliques « Synthèse plateforme », le cockpit REMPLACE toute ta roadmap au lieu de la fusionner : les trois jalons que tu avais validés depuis mon rapport du 26/07 étaient encore là le 27, ils ont disparu ce matin. Ce n'est pas toi qui as effacé, c'est le code. Et rassure-toi sur un point : ton dépôt Plateforme-CPTS va très bien, le cockpit y a lu 53 jalons ce matin sous le nouveau nom de compte — c'est mon accès à moi qui est cassé, pas le tien. Une seule action pour aujourd'hui : ouvre le cockpit, clique « ↻ Signalements », et regarde si Pau Béarn a écrit quelque chose depuis 15 jours. La réponse à cette question décide de tout le reste."
     }
   ]
 }
