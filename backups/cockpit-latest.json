@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T11:57:09.348Z",
+  "exportedAt": "2026-08-05T11:58:50.401Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -8392,6 +8392,42 @@
         "why": "CPTS des 3 Provinces (64) vient de signer son ACI à la CPAM de Bayonne : 124 communes, ~380 pros libéraux. CPTS jeune et active, sur ton territoire, à équiper.",
         "by": "Orion (Observatoire)",
         "at": "2026-07-26"
+      },
+      {
+        "id": "msg199041l24s",
+        "key": "chef-produit:roadmap écrasée à chaque resync",
+        "slug": "chef-produit",
+        "title": "Roadmap écrasée à chaque resync",
+        "why": "",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-08-05"
+      },
+      {
+        "id": "msg19slfl45z3",
+        "key": "chef-produit:magnus aveugle sur le produit",
+        "slug": "chef-produit",
+        "title": "Magnus aveugle sur le produit",
+        "why": "",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-08-05"
+      },
+      {
+        "id": "msg19uajx9oa8",
+        "key": "chef-produit:sauvegardes muettes 9 jours",
+        "slug": "chef-produit",
+        "title": "Sauvegardes muettes 9 jours",
+        "why": "",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-08-05"
+      },
+      {
+        "id": "msg19vrt2f9ld",
+        "key": "chef-produit:faire vivre la béta pau béarn",
+        "slug": "chef-produit",
+        "title": "Faire vivre la béta Pau Béarn",
+        "why": "La convention est signée depuis le 21/07 : ça fait 15 jours. Dans le cockpit, data.beta.retours = [], incidents = [], journal = [] — rien. (Nuance honnête : les signalements, eux, sont lus en direct dans betatest.json et ne sont pas stockés dans la sauvegarde, donc leur absence ici ne prouve rien.) Mais aucune trace d'usage réel non plus. Or une béta qui ne tourne pas ne se convertit pas en client payant, et c'est ça, aujourd'hui, ta route vers la première vente. Trois pas concrets, dans l'ordre : (1) ouvre le cockpit et clique « ↻ Signalements » — si la liste est vide après 15 jours, ce n'est pas un bug, c'est un signal ; (2) provoque un point à J+15 avec Pau Béarn : qui s'est connecté, qui a essayé quoi, qu'est-ce qui a coincé au premier écran — même 20 minutes au téléphone valent tous les tableaux de bord ; (3) note ce que tu apprends dans data.beta.journal, pour que le béta test laisse une trace exploitable (et devienne ton étude de cas). Si ce point révèle que personne ne s'est vraiment connecté, alors le vrai chantier produit devient l'onboarding des membres, pas une fonctionnalité de plus.",
+        "by": "Magnus (Chef Produit)",
+        "at": "2026-08-05"
       }
     ]
   }
