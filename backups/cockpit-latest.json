@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T06:50:15.532Z",
+  "exportedAt": "2026-08-05T08:07:22.375Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -5964,7 +5964,7 @@
         "id": "ms1o5aos2u7ow",
         "title": "Sécuriser les données réelles béta",
         "month": "2026-07",
-        "status": "planned",
+        "status": "done",
         "body": "Proposé par Magnus.\n\nNouveau chantier rendu réel par la signature Pau Béarn : de vraies données membres entrent dans la plateforme. Sauvegardes DB prod + restauration testée, HTTPS, hébergement/localisation France, DPA avec Pau Béarn. À poser comme jalon actif (à mener avec Audit + DPO) — ce n'est plus « à anticiper », c'est en cours."
       },
       {
@@ -6073,13 +6073,6 @@
         "body": "Une vue d'ensemble qui répartit les actions de la CPTS selon leur avancement (prévues, pas encore lancées, en cours, terminées), pour voir d'un coup d'œil où en est le programme d'actions."
       },
       {
-        "id": "ms1lqbjnpdv3r",
-        "title": "Décider comment chaque CPTS est hébergée : espace partagé ou espace dédié",
-        "month": "2026-07",
-        "status": "planned",
-        "body": "Trancher l'architecture d'hébergement : une seule base partagée par toutes les CPTS, ou un espace dédié (base de données + fichiers) par CPTS. Décision structurante qui pèse sur les coûts, la sécurité des données, la montée en charge et la façon de mettre en service chaque nouvelle CPTS. À arbitrer avant d'engager les premières CPTS clientes."
-      },
-      {
         "id": "ms1lqbjn5zbky",
         "title": "Integration aux sites web existants des CPTS",
         "month": "2026-08",
@@ -6089,14 +6082,14 @@
       {
         "id": "ms1lqbjn8jdry",
         "title": "Un espace paie pour la coordinatrice salariée",
-        "month": "2026-07",
+        "month": "2026-09",
         "status": "planned",
         "body": "La coordinatrice est salariée, pas soignante : « Mes indemnisations » n'a pas de sens pour elle. Lui donner un espace dédié à sa paie, avec au minimum une saisie manuelle du salaire chaque mois et un raccourci « recopier le mois précédent ». Exploré lors du rework de Mon Espace, jamais spécifié (backlog contrat/salaire)."
       },
       {
         "id": "ms1lqbjnyl2k6",
         "title": "Un assistant qui estime si un projet est finançable",
-        "month": "2026-08",
+        "month": "2026-10",
         "status": "planned",
         "body": "Assistant décisionnel côté trésorerie, pour évaluer la viabilité financière d'un projet. Évoqué sur la vitrine puis jamais construit."
       },
@@ -6110,7 +6103,7 @@
       {
         "id": "ms1lqbjnudfai",
         "title": "Module migration de donnees IA-powered",
-        "month": "2026-07",
+        "month": "2026-08",
         "status": "planned",
         "body": "Ingestion Excel/Word/PDF/scans -> remplissage auto + validation humaine. Backlog trace (project_migration_module). A shipper avant les premiers clients payants. La PROMESSE commerciale associee est, elle, un cap-mur (voir CAP-03)."
       },
@@ -6152,16 +6145,9 @@
       {
         "id": "ms1lqbjnmw68b",
         "title": "Module Création CPTS",
-        "month": "2026-08",
+        "month": "2026-10",
         "status": "planned",
         "body": "Accompagnement montage juridique, rédaction lettre d'intention, rédaction diagnostic territorial, éléments de communication territoire, etc. à développer."
-      },
-      {
-        "id": "ms1lqbjn6w3yn",
-        "title": "3 guides de fond pour la vitrine",
-        "month": "2026-08",
-        "status": "planned",
-        "body": "Contenu editorial pour le site vitrine (SEO + credibilite). Liste, jamais commence."
       },
       {
         "id": "ms1lqbjnic8bg",
@@ -6194,7 +6180,7 @@
       {
         "id": "ms1lqbjnx4ovo",
         "title": "Finaliser le Dialogue de gestion",
-        "month": "2026-07",
+        "month": "2026-09",
         "status": "planned",
         "body": "Terminer le dernier volet du contrat ACI : le dialogue de gestion. Une fois ce module prêt, ouvrir un tableau de bord en lecture seule aux membres du bureau, du conseil d'administration et de la gouvernance, et permettre à certains habilités d'agir sur le dialogue de gestion."
       },
@@ -6209,7 +6195,7 @@
         "id": "ms1lqbjngmxqo",
         "title": "Les béta-testeurs signalent un bug ou une idée en deux clics, l'éditrice suit et répond",
         "month": "2026-07",
-        "status": "doing",
+        "status": "done",
         "body": "Un bouton « Un souci ? Une idée ? » présent sur toutes les pages de l'instance béta permet à chaque testeur de remonter un bug, une incohérence ou une suggestion au moment où il le rencontre, sans quitter son écran. Les retours arrivent dans l'espace éditrice, où ils sont triés par statut (nouveau, pris en compte, corrigé, écarté) et peuvent recevoir une réponse. Le suivi remonte automatiquement dans le cockpit de pilotage pour tenir les engagements de retour envers les testeurs."
       },
       {
@@ -6227,9 +6213,16 @@
         "body": "Permettre dans la vie associative de pouvoir faire des statistiques sur les catégories de profession, le ratio des membres du CA ou du bureau investis dans les groupes de travail, le taux de participation général en GT, absentéisme des membres, autres"
       },
       {
+        "id": "ms1lqbjnpdv3r",
+        "title": "Décider comment chaque CPTS est hébergée : espace partagé ou espace dédié",
+        "month": "2026-11",
+        "status": "planned",
+        "body": "Trancher l'architecture d'hébergement : une seule base partagée par toutes les CPTS, ou un espace dédié (base de données + fichiers) par CPTS. Décision structurante qui pèse sur les coûts, la sécurité des données, la montée en charge et la façon de mettre en service chaque nouvelle CPTS. À arbitrer avant d'engager les premières CPTS clientes."
+      },
+      {
         "id": "ms1lqbjn4davn",
         "title": "Module démarche d'amélioration continue",
-        "month": "2026-08",
+        "month": "2026-10",
         "status": "planned",
         "body": "Questionnaires adhérents, PDS, évaluation investissement, possibilité d'évaluer ses performances et propositions de plan d'actions, illustrations PDCA ,e tc"
       },
@@ -6243,14 +6236,14 @@
       {
         "id": "ms1lqbjndqd2x",
         "title": "Module démarche d'amélioration continue",
-        "month": "2026-08",
+        "month": "2026-10",
         "status": "planned",
         "body": "Questionnaires adhérents, PDS, évaluation investissement, possibilité d'évaluer ses performances et propositions de plan d'actions, illustrations PDCA ,e tc"
       },
       {
         "id": "ms1lqbjnl0pzr",
         "title": "Vue lecture seule du Suivi ACI pour bureau / CA / gouvernance",
-        "month": "2026-07",
+        "month": "2026-09",
         "status": "planned",
         "body": "Chantier C5 de la refonte Coordination, reporté : dépend de la finalisation des modules Suivi des indicateurs + Dialogue de gestion (aujourd'hui en construction). Tant qu'ils ne sont pas construits, pas de support pour cette lecture seule ni pour l'action gouvernance. À reprendre après."
       },
@@ -6258,14 +6251,7 @@
         "id": "ms1lqbjnqzdke",
         "title": "Statuts & rémunération : 4 cas de figure non couverts par le modèle",
         "month": "2026-07",
-        "status": "planned",
-        "body": "Audit du modèle (2026-07-07) : couvre ~90 % des CPTS (typologies libres, taux/mode par statut, override par membre, taux figé par déclaration). 4 manques structurels à valider en béta : (1) taux par activité/mission — le plus critique car incontournable quand il se présente ; (2) forfaits non horaires structurés (ex : 50 €/réunion) au-delà de l'ICPA ; (3) plafonds/enveloppes d'indemnisation par membre ou statut (ex : 3 000 €/an) avec alerte ; (4) salariat CPTS (déjà au backlog contrat/salaire, hors modèle indemnisation). Recommandation : ne rien construire avant retour béta Pau Béarn."
-      },
-      {
-        "id": "ms1lqbjni46a9",
-        "title": "Statuts & rémunération : 4 cas de figure non couverts par le modèle",
-        "month": "2026-08",
-        "status": "planned",
+        "status": "done",
         "body": "Audit du modèle (2026-07-07) : couvre ~90 % des CPTS (typologies libres, taux/mode par statut, override par membre, taux figé par déclaration). 4 manques structurels à valider en béta : (1) taux par activité/mission — le plus critique car incontournable quand il se présente ; (2) forfaits non horaires structurés (ex : 50 €/réunion) au-delà de l'ICPA ; (3) plafonds/enveloppes d'indemnisation par membre ou statut (ex : 3 000 €/an) avec alerte ; (4) salariat CPTS (déjà au backlog contrat/salaire, hors modèle indemnisation). Recommandation : ne rien construire avant retour béta Pau Béarn."
       },
       {
