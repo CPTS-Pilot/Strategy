@@ -8485,6 +8485,37 @@ function scheduleAutoBackup() {
   backupDebounce = setTimeout(() => { backupPending = false; backupDebounce = null; backupToGithub(true); }, 45000);
 }
 
+// Restaure le cockpit depuis backups/cockpit-latest.json du repo, sans passer par
+// un téléchargement de fichier. Le repo étant public, la lecture ne demande pas de token.
+async function restoreFromGithub() {
+  const btn = document.getElementById('restore-backup-btn');
+  const cfg = getGhConfig();
+  const owner = cfg.owner || 'CPTS-Pilot';
+  const repo = cfg.repo || 'Strategy';
+  const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/${BACKUP_PATH}?t=${Date.now()}`;
+  if (btn) { btn.disabled = true; btn.textContent = '… lecture de la sauvegarde'; }
+  try {
+    const resp = await fetch(url, { cache: 'no-store' });
+    if (!resp.ok) throw new Error(resp.status === 404 ? "aucune sauvegarde trouvée dans le repo" : 'GitHub a répondu ' + resp.status);
+    const parsed = JSON.parse(await resp.text());
+    const data = (parsed && typeof parsed.data === 'object' && parsed.data) ? parsed.data : parsed;
+    if (!data || typeof data !== 'object') throw new Error('sauvegarde illisible');
+    const d = parsed.exportedAt ? new Date(parsed.exportedAt) : null;
+    const quand = d && !isNaN(d) ? 'du ' + d.toLocaleString('fr-FR') : 'trouvée';
+    const compte = ['roadmap','tasks','notes','precos'].map(k => Array.isArray(data[k]) ? `${data[k].length} ${k}` : null).filter(Boolean).join(', ');
+    if (!confirm(`Sauvegarde ${quand}\n${compte}\n\nElle va REMPLACER le contenu actuel de ce cockpit. Continuer ?`)) return;
+    localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    load();
+    save();
+    render();
+    alert('Cockpit restauré.');
+  } catch (e) {
+    alert('Restauration impossible : ' + (e.message || e) + "\n\nTu peux toujours passer par « ⬆ Importer » avec le fichier téléchargé depuis GitHub.");
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '↓ Restaurer la dernière sauvegarde'; }
+  }
+}
+
 function getGhConfig() {
   try {
     const c = JSON.parse(localStorage.getItem(GH_CONFIG_KEY) || '{}');
@@ -8645,6 +8676,7 @@ function openSettingsModal() {
       <div class="settings-row">
         <button class="btn btn-ghost" onclick="openGhConfigModal()">${cfg.token?'Reconfigurer':'☁ Configurer'}</button>
         <button class="btn btn-primary" id="manual-backup-btn" onclick="doManualBackup()">↑ Sauvegarder maintenant</button>
+        <button class="btn btn-ghost" id="restore-backup-btn" onclick="restoreFromGithub()">↓ Restaurer la dernière sauvegarde</button>
       </div>
     </div>
     <div class="settings-section">
