@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T09:28:38.067Z",
+  "exportedAt": "2026-08-05T11:57:09.348Z",
   "origin": "auto-backup",
   "data": {
     "nodes": [
@@ -7654,6 +7654,50 @@
         "enTache": false,
         "enRoadmap": true,
         "etat": "active"
+      },
+      {
+        "id": "msg16uj8w3su0",
+        "key": "faire vivre la béta pau béarn",
+        "titre": "Faire vivre la béta Pau Béarn",
+        "type": "chantier",
+        "fromDate": "2026-08-05",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "msg16uj8ammee",
+        "key": "roadmap écrasée à chaque resync",
+        "titre": "Roadmap écrasée à chaque resync",
+        "type": "anticiper",
+        "fromDate": "2026-08-05",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "msg16uj87s4ji",
+        "key": "sauvegardes muettes 9 jours",
+        "titre": "Sauvegardes muettes 9 jours",
+        "type": "anticiper",
+        "fromDate": "2026-08-05",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
+      },
+      {
+        "id": "msg16uj8hjocj",
+        "key": "magnus aveugle sur le produit",
+        "titre": "Magnus aveugle sur le produit",
+        "type": "anticiper",
+        "fromDate": "2026-08-05",
+        "agent": "chef-produit",
+        "enTache": false,
+        "enRoadmap": false,
+        "etat": "active"
       }
     ],
     "agentChats": {
@@ -7891,7 +7935,7 @@
     },
     "lastSeenReport": {
       "orion": "2026-07-26",
-      "chef-produit": "2026-07-26",
+      "chef-produit": "2026-08-05",
       "victor": "2026-07-12",
       "smoke": "2026-07-03",
       "carla": "2026-06-27"
